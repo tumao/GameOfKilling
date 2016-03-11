@@ -23,7 +23,7 @@ class CallbackController extends BaseController
 		// }else{
 		//   return false;
 		// }
-		$content = file_get_contents( 'php://input' );
+		$content = file_get_contents('php://input');
 		$data = new \SimpleXMLElement ( $content );
 		\SeasLog::debug(json_encode($data));
 
