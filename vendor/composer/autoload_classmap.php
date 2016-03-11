@@ -16,6 +16,7 @@ return array(
     'App\\Models\\Catelogue' => $baseDir . '/app/models/Catelogue.php',
     'App\\Models\\Config' => $baseDir . '/app/models/Config.php',
     'App\\Models\\User' => $baseDir . '/app/models/User.php',
+    'App\\Models\\Weixin' => $baseDir . '/app/models/Weixin.php',
     'Core\\Controllers\\Controller' => $baseDir . '/core/Controller.php',
     'Core\\Orms\\Orm' => $baseDir . '/core/Orm.php',
     'Lang' => $baseDir . '/core/Lang.php',
