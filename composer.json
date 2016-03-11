@@ -8,10 +8,10 @@
     "illuminate/events": "^5.2"
   },
   "autoload":{
-        "classmap":[
-                "app/controllers",
-                "app/models",
-                "core"
-                ]
+    "classmap":[
+      "app/controllers",
+      "app/models",
+      "core"
+      ]
   }
 }

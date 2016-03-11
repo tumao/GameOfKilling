@@ -186,4 +186,5 @@ return array(
     'TP_yyStackEntry' => $vendorDir . '/smarty/smarty/libs/sysplugins/smarty_internal_templateparser.php',
     'TP_yyToken' => $vendorDir . '/smarty/smarty/libs/sysplugins/smarty_internal_templateparser.php',
     'View' => $baseDir . '/core/View.php',
+    'iRedis' => $baseDir . '/core/iRedis.php',
 );
