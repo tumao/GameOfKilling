@@ -8,20 +8,22 @@ class CallbackController extends BaseController
 {
 	public function weixin()
 	{
-		$signature = $_GET["signature"];
-	    $timestamp = $_GET["timestamp"];
-	    $nonce = $_GET["nonce"]; 
+		// $signature = $_GET["signature"];
+	 //    $timestamp = $_GET["timestamp"];
+	 //    $nonce = $_GET["nonce"]; 
 	          
-		$token = 'quick';
-		$tmpArr = array($token, $timestamp, $nonce);
-		sort($tmpArr, SORT_STRING);
-		$tmpStr = implode( $tmpArr );
-		$tmpStr = sha1( $tmpStr );
+		// $token = 'quick';
+		// $tmpArr = array($token, $timestamp, $nonce);
+		// sort($tmpArr, SORT_STRING);
+		// $tmpStr = implode( $tmpArr );
+		// $tmpStr = sha1( $tmpStr );
 	 
-		if( $tmpStr == $signature ){
-		  return true;
-		}else{
-		  return false;
-		}
+		// if( $tmpStr == $signature ){
+		//   return true;
+		// }else{
+		//   return false;
+		// }
+		$content = wp_file_get_contents ( 'php://input' );
+		$data = new \SimpleXMLElement ( $content );
 	}
 }
