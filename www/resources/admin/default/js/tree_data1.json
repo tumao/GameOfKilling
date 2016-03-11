@@ -1,0 +1,33 @@
+[
+  {
+    "id": "8",
+    "text": "测试1",
+    "iconCls": "",
+    "children": null
+  },
+  {
+    "id": "9",
+    "text": "测试1",
+    "iconCls": "",
+    "children": [
+      {
+        "id": "11",
+        "text": "测试1",
+        "iconCls": "",
+        "children": null
+      },
+      {
+        "id": "12",
+        "text": "测试1",
+        "iconCls": "",
+        "children": null
+      }
+    ]
+  },
+  {
+    "id": "10",
+    "text": "测试1",
+    "iconCls": "",
+    "children": null
+  }
+]
