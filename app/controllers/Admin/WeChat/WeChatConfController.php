@@ -13,6 +13,10 @@ class WeChatConfController extends ABaseController
 
 	public function getAppid()
 	{
-		echo getConfig('wechat.APPID');
+		$appid = $this->getAppId();
+		$secret = $this->getSecret();
+		$result = $this->mget("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={$appid}&secret={$secret}");
+		var_dump( $result);
+
 	}
 }
