@@ -28,3 +28,4 @@ Route::get('admin/wechat', 'App\Controllers\Admin\Wechat\WeChatConfController@ge
 
 // api
 Route::get('api/test', 'App\Api\FileController@test');
+Route::get('api/weixin', 'App\Api\CallbackController@weixin');
