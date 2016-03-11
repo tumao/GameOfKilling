@@ -25,5 +25,7 @@ class CallbackController extends BaseController
 		// }
 		$content = wp_file_get_contents ( 'php://input' );
 		$data = new \SimpleXMLElement ( $content );
+		\SeasLog::debug(json_encode($data));
+
 	}
 }
