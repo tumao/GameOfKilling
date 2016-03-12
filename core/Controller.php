@@ -214,7 +214,7 @@ class Controller
 
 
 	/**
-	 *	获取用户的 openid
+	 *	获取用户的 openid ---todo
 	 *
 	 *
 	 */
@@ -231,7 +231,7 @@ class Controller
 	}
 
 	/**
-	 *	获取用户的信息
+	 *	获取用户的信息 ---todo
 	 *
 	 *
 	 */

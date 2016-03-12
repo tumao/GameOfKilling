@@ -26,7 +26,7 @@ class WeChatConfController extends ABaseController
 		$config_path = CONFIG_PATH.'/wx_menu.php';
 		$menus = require($config_path);
 		$token = $this->get_token();
-		$menus = json_encode($menus);
+		$menus = json_encode($menus,JSON_UNESCAPED_UNICODE);
 		// \Seaslog::debug('menus__'.$menus);
 		// $result = $this->sent_post("https://api.weixin.qq.com/cgi-bin/menu/create?access_token={$token}",$menus);
 		
