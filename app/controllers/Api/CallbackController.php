@@ -13,13 +13,13 @@ class CallbackController extends BaseController
 	 */
 	public function weixin()
 	{
+		\Seaslog::debug(json_encode($_REQUEST));	// 输入
 	    $signature = $this->g('signature');
 	    $timestamp = $this->g('timestamp');
 	    $nonce = $this->g('nonce');
 	    $echoStr = $this->g('echostr');
 	    $Weixin = new Weixin();
 	    $result = $Weixin->checkSignature($timestamp, $nonce, $signature);
-	    \Seaslog::debug(json_encode($_REQUEST));	// 输入
 
 	    // if($result)
 	    // {
