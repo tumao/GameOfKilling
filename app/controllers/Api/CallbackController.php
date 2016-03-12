@@ -13,6 +13,7 @@ class CallbackController extends BaseController
 	    $nonce = $this->g('nonce');
 	    $Weixin = new Weixin();
 	    $result = $Weixin->checkSignature($timestamp, $nonce, $signature);
+	    \Seaslog::debug($result);
 	    if($result)
 	    {
 	    	return true;
