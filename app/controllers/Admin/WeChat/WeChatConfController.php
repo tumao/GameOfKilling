@@ -36,6 +36,7 @@ class WeChatConfController extends ABaseController
 
 	private function create_menu($data, $token)
 	{
+		header("Content-type: text/html; charset=utf-8");
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=".$token);
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
