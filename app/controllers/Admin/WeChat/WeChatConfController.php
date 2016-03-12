@@ -13,8 +13,12 @@ class WeChatConfController extends ABaseController
 
 	public function getAppid()
 	{
-		$openid = $this->get_openid();
+		echo $openid = $this->get_token();
+	}
 
+	public function clearToken()
+	{
+		$this->clear_token();
 	}
 
 	public function generageMenu()

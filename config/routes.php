@@ -26,6 +26,7 @@ Route::post('admin/cate/add', 'App\Controllers\Admin\Catelogue\CatelogueControll
 
 Route::get('admin/wechat', 'App\Controllers\Admin\Wechat\WeChatConfController@getAppid');
 Route::get('admin/genmenu', 'App\Controllers\Admin\Wechat\WeChatConfController@generageMenu');
+Route::get('admin/cleartoken', 'App\Controllers\Admin\Wechat\WeChatConfController@clearToken');
 
 // api
 Route::get('api/test', 'App\Api\FileController@test');
