@@ -2,15 +2,37 @@
 
 return [
 	'button'	=> [ 
-		['name' 	=> '菜单一',
+		['name' 	=> '主页',
 			'sub_button'	=> [
 				[
 					'type'	=> 'view',
-					'name'	=> 'search',
+					'name'	=> '通知',
 					'url'	=> 'http://www.baidu.com'
 				],[
 					'type'	=> 'view',
 					'name'	=> 'foundit',
+					'url'	=> 'http://socketio.cn'
+				]
+			],
+		],[
+		'name' 	=> '个人',
+			'sub_button'	=> [
+				[
+					'type'	=> 'view',
+					'name'	=> '成绩',
+					'url'	=> 'http://www.baidu.com'
+				]
+			],
+		],[
+		'name' 	=> '新游戏',
+			'sub_button'	=> [
+				[
+					'type'	=> 'view',
+					'name'	=> '开局',
+					'url'	=> 'http://www.baidu.com'
+				],[
+					'type'	=> 'view',
+					'name'	=> '进入游戏',
 					'url'	=> 'http://socketio.cn'
 				]
 			],

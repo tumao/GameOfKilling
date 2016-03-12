@@ -21,6 +21,11 @@ class WeChatConfController extends ABaseController
 		$this->clear_token();
 	}
 
+	/**
+	 *	微信生成菜单
+	 *
+	 *
+	 */
 	public function generageMenu()
 	{
 		$config_path = CONFIG_PATH.'/wx_menu.php';
