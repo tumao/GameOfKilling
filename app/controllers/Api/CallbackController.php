@@ -10,7 +10,7 @@ class CallbackController extends BaseController
 	{
 	    $signature = $this->g('signature');
 	    $timestamp = $this->g('timestamp');
-	    $nonce = $this->g('nonce');
+	    $nonce = $this->g('echostr');
 	    $Weixin = new Weixin();
 	    $result = $Weixin->checkSignature($timestamp, $nonce, $signature);
 
