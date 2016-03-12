@@ -23,6 +23,6 @@ class WeChatConfController extends ABaseController
 		$menus = require($config_path);
 		$token = $this->get_token();
 		$result = $this->sent_post("https://api.weixin.qq.com/cgi-bin/menu/create?access_token={$token}",json_encode($menus));
-		\Seaslog::debug($result);
+		var_dump( $result);exit;
 	}
 }
