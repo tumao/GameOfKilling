@@ -13,7 +13,7 @@ class Weixin extends Orm
     {
       $token = 'quick';
       $tempArr = array($token, $nonce, $timestamps);
-      sort($tempArr);
+      sort($tempArr,SORT_STRING);
       $tempStr = implode($tempArr);
       $tempStr = sha1($tempStr);
       if($tempStr == $signature)

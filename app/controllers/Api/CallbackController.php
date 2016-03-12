@@ -10,14 +10,17 @@ class CallbackController extends BaseController
 	{
 	    $signature = $this->g('signature');
 	    $timestamp = $this->g('timestamp');
-	    $nonce = $this->g('echostr');
+	    $nonce = $this->g('nonce');
+	    $echoStr = $this->g('echostr');
 	    $Weixin = new Weixin();
 	    $result = $Weixin->checkSignature($timestamp, $nonce, $signature);
+	    $request = $_REQUEST;
+	    \Seaslog::debug(json_encode($request));
 
 	    if($result)
 	    {
 	    	\Seaslog::debug('the check is right');
-	    	return true;
+	    	return $echoStr;
 	    }
 	    else
 	    {
