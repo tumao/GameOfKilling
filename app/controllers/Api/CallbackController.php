@@ -19,7 +19,7 @@ class CallbackController extends BaseController
 
 	    if($result)
 	    {
-	    	\Seaslog::debug('the check is right');
+	    	\Seaslog::debug('right--'.$echoStr);
 	    	return $echoStr;
 	    }
 	    else
