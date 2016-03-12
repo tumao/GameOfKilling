@@ -195,6 +195,7 @@ class Controller
 				&appid={$appid}
 			&secret={$secret}");	// 获取的数据为json格式
 
+			\SeasLog::debug('token_'.$result);
 			$result = json_decode($result);
 			$token = $result->access_token;
 			if($token)	// 将获取到的token存入redis
