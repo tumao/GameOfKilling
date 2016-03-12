@@ -11,8 +11,8 @@ class Weixin extends Orm
 
     public function checkSignature($timestamps, $nonce, $signature)
     {
-      $token = 'quick';
-      $tempArr = array($token, $nonce, $timestamps);
+      $token = getConfig('wechat.TOKEN'); // 获取配置中的token
+      $tempArr = array($token, $timestamps, $nonce);
       sort($tempArr,SORT_STRING);
       $tempStr = implode($tempArr);
       $tempStr = sha1($tempStr);

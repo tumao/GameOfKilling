@@ -191,7 +191,9 @@ class Controller
 		}
 		else
 		{
-			$result = $this->sentGet("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={$appid}&secret={$secret}");	// 获取的数据为json格式
+			$result = $this->sent_get("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential
+				&appid={$appid}
+			&secret={$secret}");	// 获取的数据为json格式
 
 			$result = json_decode($result);
 			$token = $result->access_token;
@@ -221,6 +223,25 @@ class Controller
 	 */
 	protected function get_openid()
 	{
+		$appid = getConfig('wechat.APPID');
+		$redirectUrl = urlencode('http://socketio.cn');
+		$result = $this->sent_get("https://open.weixin.qq.com/connect/oauth2/authorize?appid={$appid}
+			&redirect_uri={$redirectUrl}
+			&response_type=code
+			&scope=snsapi_base
+			&state=STATE#wechat_redirect");
+		return $result;		
+	}
 
+	/**
+	 *	获取用户的信息
+	 *
+	 *
+	 */
+	protected function get_userinfo()
+	{
+		$result = $this->sent_get("https://api.weixin.qq.com/cgi-bin/user/info?access_token={$token}
+			&openid=OPENID
+		&lang=zh_CN");
 	}
 }

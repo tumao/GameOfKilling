@@ -70,7 +70,7 @@ var Menu = {
 		$('#memo').val('');
 		$('#FormAdd').dialog({
 			title: '新增菜单',
-			width: 235,
+			width: 300,
 			closed: false,
 			modal: true,
 			buttons: [{

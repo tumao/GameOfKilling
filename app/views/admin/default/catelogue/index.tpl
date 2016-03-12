@@ -19,20 +19,20 @@
         <div onclick="Menu.reload()" data-options="iconCls:'icon-reload'">刷新</div>
     </div>
     <div class="my-ui-hidden">
-        <div id="FormAdd">
-            <div>
-                <span>菜单名</span>
+        <div id="FormAdd" style="padding:15px;">
+            <div style="margin-top: 10px;">
+                <span>菜单</span>
                 <input id="name" type="text" class="easyui-validatebox" data-options="required:true" />
             </div>
-            <div>
+            <div style="margin-top: 10px;">
                 <span>路径</span>
                 <input id="path" type="text" class="easyui-validatebox" data-options="required:true" />
             </div>
-            <div>
+            <div style="margin-top: 10px;">
                 <span>图标</span>
                 <input id="icon" type="text" />
             </div>
-            <div>
+            <div style="margin-top: 10px;">
                 <span>备注</span>
                 <input id="memo" type="text" />
             </div>

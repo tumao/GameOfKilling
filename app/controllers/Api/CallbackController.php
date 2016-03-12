@@ -6,6 +6,11 @@ use App\Models\Weixin;
 
 class CallbackController extends BaseController
 {
+	/**
+	 *	微信的接入接口
+	 *
+	 *
+	 */
 	public function weixin()
 	{
 	    $signature = $this->g('signature');
@@ -14,18 +19,17 @@ class CallbackController extends BaseController
 	    $echoStr = $this->g('echostr');
 	    $Weixin = new Weixin();
 	    $result = $Weixin->checkSignature($timestamp, $nonce, $signature);
-	    $request = $_REQUEST;
-	    \Seaslog::debug(json_encode($request));
+	    // \Seaslog::debug(json_encode($_REQUEST));	输入
 
 	    if($result)
 	    {
-	    	\Seaslog::debug('right--'.$echoStr);
-	    	echo $echoStr;
+	    	echo $echoStr;	// 校验签名成功，则返回$echostr,通知微信服务器校验成功
+	    	exit;
 	    }
 	    else
 	    {
-	    	\Seaslog::debug('the check is wrong');
-	    	return false;
+	    	echo false;
+	    	exit;
 	    }
 	}
 }
