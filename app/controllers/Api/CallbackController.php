@@ -8,24 +8,18 @@ class CallbackController extends BaseController
 {
 	public function weixin()
 	{
-		// $signature = $_GET["signature"];
-	 //    $timestamp = $_GET["timestamp"];
-	 //    $nonce = $_GET["nonce"]; 
-	          
-		// $token = 'quick';
-		// $tmpArr = array($token, $timestamp, $nonce);
-		// sort($tmpArr, SORT_STRING);
-		// $tmpStr = implode( $tmpArr );
-		// $tmpStr = sha1( $tmpStr );
-	 
-		// if( $tmpStr == $signature ){
-		//   return true;
-		// }else{
-		//   return false;
-		// }
-		// $content = file_get_contents('php://input');
-		// $data = new \SimpleXMLElement ( $content );
-		// \SeasLog::debug(json_encode($data));
-		return true;
+	    $signature = $this->g('signature');
+	    $timestamp = $this->g('timestamp');
+	    $nonce = $this->g('nonce');
+	    $Weixin = new Weixin();
+	    $result = $Weixin->checkSignature($timestamp, $nonce, $signature);
+	    if($result)
+	    {
+	    	return true;
+	    }
+	    else
+	    {
+	    	return false;
+	    }
 	}
 }

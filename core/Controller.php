@@ -90,7 +90,7 @@ class Controller
 	 *
 	 *
 	 */
-	public function getConfig($key)
+	protected function get_config($key)
 	{
 		$Config = new Config;
 		return $Config->getConfig($key);
@@ -102,20 +102,20 @@ class Controller
 	 *
 	 *
 	 */
-	public function setConfig($key, $value)
+	protected function set_config($key, $value)
 	{
 		$Config = new Config;
 		$Config->setConfig($key, $value);
 	}
 
-	public function updateConfig($key, $value)
+	protected function update_config($key, $value)
 	{
 		$Config = new Config;
 		$Config->updateConfig($key, $value);
 	}
 
 	// GET请求
-	public function sentGet($url)
+	protected function sent_get($url)
 	{
 		$ch = curl_init();
 		$timeout = 5;
@@ -129,7 +129,7 @@ class Controller
 	}
 
 	// xml POST请求
-	private function sentPost($url, $para, $certArr=array())
+	protected function sent_post($url, $para, $certArr=array())
 	{
 		$curl = curl_init();
  		curl_setopt($curl, CURLOPT_URL, $url);
@@ -171,7 +171,7 @@ class Controller
 	 * 获取secret
 	 *
 	 */
-	public function getsec()
+	protected function getsec()
 	{
 		return getConfig('wechat.SECRET');
 	}
@@ -180,7 +180,7 @@ class Controller
 	 *	获取token
 	 *
 	 */
-	public function getToken()
+	protected function get_token()
 	{
 		$appid = $this->getaid();
 		$secret = $this->getsec();
@@ -208,9 +208,19 @@ class Controller
 	 *	清除token
 	 *
 	 */
-	public function clearToken()
+	protected function clear_token()
 	{
 		\iRedis::delete('token');
 	}
 
+
+	/**
+	 *	获取用户的 openid
+	 *
+	 *
+	 */
+	protected function get_openid()
+	{
+
+	}
 }
