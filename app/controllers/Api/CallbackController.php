@@ -13,7 +13,7 @@ class CallbackController extends BaseController
 	 */
 	public function weixin()
 	{
-	    $signature = $this->g('signature');
+	    /*$signature = $this->g('signature');
 	    $timestamp = $this->g('timestamp');
 	    $nonce = $this->g('nonce');
 	    $echoStr = $this->g('echostr');
@@ -37,8 +37,8 @@ class CallbackController extends BaseController
 	    {
 	    	echo false;
 	    	exit;
-	    }
-	/*    $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
+	    }*/
+	    $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
 		if (!empty($postStr)){
                 
               	$postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
@@ -67,7 +67,7 @@ class CallbackController extends BaseController
         }else {
         	echo "";
         	exit;
-        }*/
+        }
 	}
 
 
