@@ -13,7 +13,7 @@ class CallbackController extends BaseController
 	 */
 	public function weixin()
 	{
-		\Seaslog::debug(json_encode($_REQUEST));	// 输入
+		\Seaslog::debug(json_encode($GLOBALS));	// 输入
 	    $signature = $this->g('signature');
 	    $timestamp = $this->g('timestamp');
 	    $nonce = $this->g('nonce');
