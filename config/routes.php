@@ -31,3 +31,4 @@ Route::get('admin/cleartoken', 'App\Controllers\Admin\Wechat\WeChatConfControlle
 // api
 Route::get('api/test', 'App\Api\FileController@test');
 Route::get('api/weixin', 'App\Api\CallbackController@weixin');
+Route::post('api/weixin', 'App\Api\CallbackController@weixin');
