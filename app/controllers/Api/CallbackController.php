@@ -38,7 +38,10 @@ class CallbackController extends BaseController
 	    	echo false;
 	    	exit;
 	    }*/
-	    $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
+		//get post data, May be due to the different environments
+		$postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
+
+      	//extract post data
 		if (!empty($postStr)){
                 
               	$postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
@@ -58,7 +61,7 @@ class CallbackController extends BaseController
                 {
               		$msgType = "text";
                 	$contentStr = "Welcome to wechat world!";
-                	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $fromUsername);
                 	echo $resultStr;
                 }else{
                 	echo "Input something...";
