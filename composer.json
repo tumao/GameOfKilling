@@ -5,7 +5,8 @@
     "filp/whoops": "^2.0",
     "smarty/smarty": "^3.1",
     "predis/predis": "^1.0",
-    "illuminate/events": "^5.2"
+    "illuminate/events": "^5.2",
+    "cboden/ratchet": "0.3.*"
   },
   "autoload":{
     "classmap":[
