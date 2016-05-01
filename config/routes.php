@@ -6,7 +6,7 @@ Route::get('/', function(){
 
 // admin
 Route::get('admin', function(){
-	echo 'this is backend main page';
+	header ("Location:/admin/cate/backend");
 });
 
 Route::get('admin/login', 'App\Controllers\Admin\User\UserController@login');					// login

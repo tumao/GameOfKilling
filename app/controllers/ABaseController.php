@@ -90,29 +90,29 @@ class ABaseController extends Controller
 	}
 
 
-	private function __init_menu_tree($list, $rid)
+	private function __init_menu_tree ($list, $rid)
 	{
-		$children = $this->__find_child_menu($list, $rid);
-		if(empty($children))
+		$children = $this->__find_child_menu ($list, $rid);
+		if (empty ($children))
 		{
 			return NULL;
 		}
-		foreach($children as $k=>$v)
+		foreach ($children as $k=>$v)
 		{
-			$res = $this->__init_menu_tree($list, $v['id']);
-			if($res != NULL)
+			$res = $this->__init_menu_tree ($list, $v['id']);
+			if ($res != NULL)
 			{
-				$children[$k]['children'] = $res;
+				$children [$k]['children'] = $res;
 			}
 			else
 			{
-				$children[$k]['children'] = NULL;
+				$children [$k]['children'] = NULL;
 			}
 		}
 		return $children;
 	}
 
-	private function __find_child_menu($arr, $rid)
+	private function __find_child_menu ($arr, $rid)
 	{
 		$children = array();
 		foreach($arr as & $x)
