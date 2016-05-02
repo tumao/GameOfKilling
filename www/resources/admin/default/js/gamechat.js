@@ -1,4 +1,4 @@
-var conn = new WebSocket ('ws:192.168.31.11:9979');
+var conn = new WebSocket ('ws:139.129.23.52.cn:9979');
 conn.onopen = function (e){
 	console.log ('connection established!');
 };
