@@ -7,12 +7,14 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Api\\CallbackController' => $baseDir . '/app/controllers/Api/CallbackController.php',
+    'App\\Api\\ChatController' => $baseDir . '/app/controllers/Api/ChatController.php',
     'App\\Api\\FileController' => $baseDir . '/app/controllers/Api/FileController.php',
     'App\\Controllers\\Admin\\ABaseController' => $baseDir . '/app/controllers/ABaseController.php',
     'App\\Controllers\\Admin\\Catelogue\\CatelogueController' => $baseDir . '/app/controllers/Admin/Catelogue/CatelogueController.php',
     'App\\Controllers\\Admin\\User\\UserController' => $baseDir . '/app/controllers/Admin/User/UserController.php',
     'App\\Controllers\\Admin\\Wechat\\WeChatConfController' => $baseDir . '/app/controllers/Admin/WeChat/WeChatConfController.php',
     'App\\Controllers\\BaseController' => $baseDir . '/app/controllers/BaseController.php',
+    'App\\Controllers\\Front\\Game\\IndexController' => $baseDir . '/app/controllers/Front/Game/IndexController.php',
     'App\\Models\\Catelogue' => $baseDir . '/app/models/Catelogue.php',
     'App\\Models\\Config' => $baseDir . '/app/models/Config.php',
     'App\\Models\\User' => $baseDir . '/app/models/User.php',

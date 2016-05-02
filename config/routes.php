@@ -1,7 +1,7 @@
 <?php
 
-Route::get('/', function(){
-	header('location:/admin');
+Route::get('', function(){
+	header ('Location:/admin/cate/backend');
 });
 
 // admin
@@ -32,3 +32,6 @@ Route::get('admin/cleartoken', 'App\Controllers\Admin\Wechat\WeChatConfControlle
 Route::get('api/test', 'App\Api\FileController@test');
 Route::get('api/weixin', 'App\Api\CallbackController@weixin');
 Route::post('api/weixin', 'App\Api\CallbackController@weixin');
+
+// front
+Route::get ('mygame', 'App\Controllers\Front\Game\IndexController@index');
