@@ -8,6 +8,11 @@ class Controller
 
 	public function __construct()
 	{
+		$this->view = new \View();	
+	}
+
+	protected function loadViewer ()
+	{
 		$this->view = new \View();
 	}
 

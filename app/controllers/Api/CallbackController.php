@@ -13,20 +13,20 @@ class CallbackController extends BaseController
 	 */
 	public function weixin()
 	{
-	    $signature = $this->g('signature');
-	    $timestamp = $this->g('timestamp');
-	    $nonce = $this->g('nonce');
-	    $echoStr = $this->g('echostr');
-	    $Weixin = new Weixin();
-	    $result = $Weixin->checkSignature($timestamp, $nonce, $signature);
+		$signature = $this->g('signature');
+	    	$timestamp = $this->g('timestamp');
+	    	$nonce = $this->g('nonce');
+	    	$echoStr = $this->g('echostr');
+	    	$Weixin = new Weixin();
+	    	$result = $Weixin->checkSignature($timestamp, $nonce, $signature);
 
-	    if($result)
-	    {
-	    	if($echoStr)
+	    	if($result)
 	    	{
-	    		echo $echoStr;	// 校验签名成功，则返回$echostr,通知微信服务器校验成功
-	    		exit;
-	    	}
+	    		if($echoStr)
+	    		{
+	    			echo $echoStr;	// 校验签名成功，则返回$echostr,通知微信服务器校验成功
+	    			exit;
+	    		}
 	    	else
 	    	{
 	    		$Weixin->responseMsg();
