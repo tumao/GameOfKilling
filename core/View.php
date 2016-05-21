@@ -15,6 +15,8 @@ class View extends \Smarty
 
 	private $_current_js = array();
 
+	private $_title;
+
 	// private $_shared = array();		// 共享的变量，在每个视图中都可以调用的
 
 	public function __construct($viewName = null)
@@ -76,12 +78,17 @@ class View extends \Smarty
 	{
 		if(!empty($this->_current_css))
 		{
-			$this->assign('currentCss', $this->_current_css);
+			$this->assign('currentCss', $this -> _current_css);
 		}
 
 		if(!empty($this->_current_js))
 		{
-			$this->assign('currentJs', $this->_current_js);
+			$this->assign('currentJs', $this -> _current_js);
+		}
+
+		if ($this->_title)
+		{
+			$this->assign ('title', $this -> _title);
 		}
 
 		if(!$tplName)
@@ -98,7 +105,7 @@ class View extends \Smarty
 	// }
 
 	/**
-	 *
+	 *	添加css
 	 *
 	 *
 	 */
@@ -112,7 +119,7 @@ class View extends \Smarty
 	}
 
 	/**
-	 *
+	 *	添加js
 	 *
 	 *
 	 */
@@ -124,4 +131,15 @@ class View extends \Smarty
 			$this->_current_js[] = $fileName;
 		}
 	}
+
+	/**
+	 * 	添加title
+	 * 
+	 * 
+	 * */
+	public function addTitle ($title)
+	{
+		$this ->_title = $title;
+	}
+
 }
