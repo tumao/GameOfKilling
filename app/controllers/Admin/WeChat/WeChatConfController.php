@@ -28,7 +28,7 @@ class WeChatConfController extends ABaseController
 	 */
 	public function generageMenu()
 	{
-		$config_path = CONFIG_PATH.'/wx_menu.php';
+		$config_path = CONFIG_PATH.'/wx_menu.php';				// get config file of wx menu
 		$menus = require($config_path);
 		$token = $this->get_token();
 		$menus = json_encode($menus,JSON_UNESCAPED_UNICODE);		// 第二个参数必不可少，意思是json_encode后中文不转码
