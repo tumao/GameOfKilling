@@ -7,7 +7,7 @@ return [
 				[
 					'type'	=> 'view',
 					'name'	=> '通知',
-					'url'	=> getConfig ('common.base_url') . 'infoms'
+					'url'	=> getConfig ('common.base_url') . 'informs'
 				],[
 					'type'	=> 'view',
 					'name'	=> '游戏简介',
@@ -16,6 +16,10 @@ return [
 					'type'	=> 'view',
 					'name'	=> '关于',
 					'url'	=> getConfig ('common.base_url') . 'about'
+				],[
+					'type'	=> 'view',
+					'name'	=> '更新',
+					'url'	=> getConfig ('common.base_url') . 'admin/genmenu'
 				]
 			],
 		],[
