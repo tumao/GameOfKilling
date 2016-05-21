@@ -1,5 +1,5 @@
 <div class="title">
-	<h3>杀人游戏（微新版）</h3>
+	<h1>杀人游戏（微新版）</h1>
 </div>
 <div class="body">
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;是一部智力和心力游戏，也是一个多人参与的较量口才和分析判断能力（推理）的游戏。<br />

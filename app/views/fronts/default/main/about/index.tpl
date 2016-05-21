@@ -1,5 +1,5 @@
 <div class="title">
-	<h3>杀人游戏</h3>	
+	<h1>杀人游戏</h1>	
 
 </div>
 <div class="body">
