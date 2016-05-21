@@ -14,6 +14,7 @@ return array(
     'App\\Controllers\\Admin\\User\\UserController' => $baseDir . '/app/controllers/Admin/User/UserController.php',
     'App\\Controllers\\Admin\\Wechat\\WeChatConfController' => $baseDir . '/app/controllers/Admin/WeChat/WeChatConfController.php',
     'App\\Controllers\\BaseController' => $baseDir . '/app/controllers/BaseController.php',
+    'App\\Controllers\\Front\\Game\\ClientController' => $baseDir . '/app/controllers/Front/Game/ClientController.php',
     'App\\Controllers\\Front\\Game\\IndexController' => $baseDir . '/app/controllers/Front/Game/IndexController.php',
     'App\\Models\\Catelogue' => $baseDir . '/app/models/Catelogue.php',
     'App\\Models\\Config' => $baseDir . '/app/models/Config.php',
