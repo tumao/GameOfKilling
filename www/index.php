@@ -1,6 +1,4 @@
 <?php
-phpinfo();
-exit;
 //定义PUBLIC_PATH
 define('PUBLIC_PATH', __DIR__);
 
