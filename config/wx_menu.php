@@ -37,7 +37,7 @@ return [
 				[
 					'type'	=> 'view',
 					'name'	=> '开局',
-					'url'	=> 'http://www.baidu.com'
+					'url'	=> getConfig('common.base_url') . 'roomlist'
 				],[
 					'type'	=> 'view',
 					'name'	=> '进入游戏',
