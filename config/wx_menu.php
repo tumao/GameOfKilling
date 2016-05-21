@@ -17,7 +17,7 @@ return [
 					'name'	=> '关于',
 					'url'	=> getConfig ('common.base_url') . 'about'
 				],[
-					'type'	=> 'view',
+					'type'	=> 'view',						// 正式上线后需要删除
 					'name'	=> '更新',
 					'url'	=> getConfig ('common.base_url') . 'admin/genmenu'
 				]

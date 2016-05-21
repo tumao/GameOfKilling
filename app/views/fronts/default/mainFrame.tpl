@@ -2,7 +2,13 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>后台</title>
+	<title>
+	{if isset($title)}
+		{$title}
+	{else}
+		杀人游戏
+	{/if}
+	</title>
 
 	<!-- 样式 -->
 	<link rel="stylesheet" type="text/css" href="/resources/public/css/theme/default/easyui.css">
