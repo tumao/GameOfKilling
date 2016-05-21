@@ -183,14 +183,14 @@ class Controller
 
 	/**
 	 *	获取token
-	 *
+	 * 	 @param boolean $new_token 清楚缓存中的token重新获取token,并且缓存
 	 */
-	protected function get_token()
+	protected function get_token($new_token = False)
 	{
 		$appid = $this->getaid();
 		$secret = $this->getsec();
 
-		if($token = \iRedis::get('token'))
+		if($token = \iRedis::get('token') && !$new_token)
 		{
 			return $token;
 		}

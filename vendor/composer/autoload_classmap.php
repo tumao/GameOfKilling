@@ -16,6 +16,7 @@ return array(
     'App\\Controllers\\BaseController' => $baseDir . '/app/controllers/BaseController.php',
     'App\\Controllers\\Front\\Game\\ClientController' => $baseDir . '/app/controllers/Front/Game/ClientController.php',
     'App\\Controllers\\Front\\Game\\IndexController' => $baseDir . '/app/controllers/Front/Game/IndexController.php',
+    'App\\Controllers\\Front\\Main\\MainController' => $baseDir . '/app/controllers/Front/Main/MainController.php',
     'App\\Models\\Catelogue' => $baseDir . '/app/models/Catelogue.php',
     'App\\Models\\Config' => $baseDir . '/app/models/Config.php',
     'App\\Models\\User' => $baseDir . '/app/models/User.php',
