@@ -10,7 +10,11 @@ return [
 					'url'	=> 'http://www.baidu.com'
 				],[
 					'type'	=> 'view',
-					'name'	=> 'foundit',
+					'name'	=> '游戏简介',
+					'url'	=> 'http://socketio.cn'
+				],[
+					'type'	=> 'view',
+					'name'	=> '关于',
 					'url'	=> 'http://socketio.cn'
 				]
 			],
