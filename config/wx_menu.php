@@ -7,15 +7,15 @@ return [
 				[
 					'type'	=> 'view',
 					'name'	=> '通知',
-					'url'	=> 'http://www.baidu.com'
+					'url'	=> getConfig ('common.base_url') . 'infoms'
 				],[
 					'type'	=> 'view',
 					'name'	=> '游戏简介',
-					'url'	=> 'http://socketio.cn'
+					'url'	=> getConfig ('common.base_url') . 'abstracts'
 				],[
 					'type'	=> 'view',
 					'name'	=> '关于',
-					'url'	=> 'http://socketio.cn'
+					'url'	=> getConfig ('common.base_url') . 'about'
 				]
 			],
 		],[
