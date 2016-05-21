@@ -1,0 +1,22 @@
+li{
+	list-style: none;
+	padding-top: 5px;
+}
+li a:link{
+	text-decoration: none;
+}
+li a:visited{
+	text-decoration: none;
+}
+li a:hover{
+	text-decoration: none;
+}
+li a:active{
+	text-decoration: none;
+}
+
+.title {
+	border-bottom: 1px solid gray;
+	padding: 10px;
+	text-align: right;
+}

@@ -34,7 +34,9 @@ Route::get('api/weixin', 'App\Api\CallbackController@weixin');
 Route::post('api/weixin', 'App\Api\CallbackController@weixin');
 
 // front
-Route::get ('mygame', 'App\Controllers\Front\Game\IndexController@index');
+Route::get ('opening', 'App\Controllers\Front\Game\IndexController@opening');			// 开局
+Route::get('entering', 'App\Controllers\Front\Game\IndexController@entering');
+Route::get ('roomlist', 'App\Controllers\Front\Game\IndexController@roomList');
 
 Route::get('informs', 'App\Controllers\Front\Main\MainController@inform');			// 通知
 Route::get('abstracts', 'App\Controllers\Front\Main\MainController@abstracts');		// 简介
