@@ -1,5 +1,5 @@
 <div class = 'title'>
-		<button style="font-size:40px;">创建房间</button>
+	<button style="font-size:40px;">创建房间</button>
 </div>
 <div class='body'>
 	<ul>
