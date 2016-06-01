@@ -47,6 +47,10 @@ class WeChatConfController extends ABaseController
 			{
 				echo 'Success ........';
 			}
+			else
+			{
+				echo "Fail ....";
+			}
 		}
 		\Seaslog::debug('genmenu__'.json_encode($result));
 	}

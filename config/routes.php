@@ -25,7 +25,7 @@ Route::post('admin/cate/del', 'App\Controllers\Admin\Catelogue\CatelogueControll
 Route::post('admin/cate/add', 'App\Controllers\Admin\Catelogue\CatelogueController@add');		// 添加菜单项
 
 Route::get('admin/wechat', 'App\Controllers\Admin\Wechat\WeChatConfController@getAppid');
-Route::get('admin/genmenu', 'App\Controllers\Admin\Wechat\WeChatConfController@generageMenu');	// 
+Route::get('admin/genmenu', 'App\Controllers\Admin\Wechat\WeChatConfController@generageMenu');	// 生成微信菜单
 Route::get('admin/cleartoken', 'App\Controllers\Admin\Wechat\WeChatConfController@clearToken');
 
 // api
