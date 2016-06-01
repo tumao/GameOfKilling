@@ -9,22 +9,22 @@ class Weixin extends Orm
 
   	public $timestamps = false;
 
-    public function checkSignature($timestamps, $nonce, $signature)
-    {
-      $token = getConfig('wechat.TOKEN'); // 获取配置中的token
-      $tempArr = array($token, $timestamps, $nonce);
-      sort($tempArr,SORT_STRING);
-      $tempStr = implode($tempArr);
-      $tempStr = sha1($tempStr);
-      if($tempStr == $signature)
+      public function checkSignature($timestamps, $nonce, $signature)
       {
-        return true;
+                $token = getConfig('wechat.TOKEN'); // 获取配置中的token
+                $tempArr = array($token, $timestamps, $nonce);
+                sort($tempArr,SORT_STRING);
+                $tempStr = implode($tempArr);
+                $tempStr = sha1($tempStr);
+                if($tempStr == $signature)
+                {
+                  return true;
+                }
+                else
+                {
+                  return false;
+                }
       }
-      else
-      {
-        return false;
-      }
-    }
 
 
     public function responseMsg()
@@ -51,7 +51,7 @@ class Weixin extends Orm
         if(!empty( $keyword ))
                 {
                   $msgType = "text";
-                  $contentStr = "Welcome to wechat world!";
+                  $contentStr = "你好啊!";
                   $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                   echo $resultStr;
                 }else{
