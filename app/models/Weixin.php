@@ -51,7 +51,7 @@ class Weixin extends Orm
         if(!empty( $keyword ))
                 {
                   $msgType = "text";
-                  $contentStr = "你好啊!";
+                  $contentStr = "你好啊2!";
                   $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                   echo $resultStr;
                 }else{
