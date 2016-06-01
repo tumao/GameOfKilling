@@ -67,7 +67,7 @@ class CallbackController extends BaseController
 			if(!empty( $keyword ))
 		               {
 		              		$msgType = "text";
-		                	$contentStr = "你好啊！";
+		                	$contentStr = "你好啊1！";
 		                	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 		                	echo $resultStr;
 		               }else{
