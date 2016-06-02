@@ -53,8 +53,8 @@ class Weixin extends Orm
                                             {
                                                   $msgType = "text";
                                                   $contentStr = "你好啊2!";
-                                                  // $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-                                                  $this->replyText($fromUsername, $toUsername, $contentStr);
+                                                  $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                                                  // $this->replyText($fromUsername, $toUsername, $contentStr);
                                                   echo $resultStr;
                                             }
                                             else
@@ -87,6 +87,5 @@ class Weixin extends Orm
                             $time = time ();
                             $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, 'text', $content);
                             echo $resultStr;
-
             }
 }
