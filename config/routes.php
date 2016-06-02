@@ -32,6 +32,7 @@ Route::get('admin/cleartoken', 'App\Controllers\Admin\Wechat\WeChatConfControlle
 Route::get('api/test', 'App\Api\FileController@test');
 Route::get('api/weixin', 'App\Api\CallbackController@weixin');
 Route::post('api/weixin', 'App\Api\CallbackController@weixin');
+Route::get ('api/getxml', 'App\Api\CallbackController@getXmlData');
 
 // front
 Route::get ('opening', 'App\Controllers\Front\Game\IndexController@opening');			// 开局
