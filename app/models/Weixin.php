@@ -31,7 +31,6 @@ class Weixin extends Orm
             {
                             //get post data, May be due to the different environments
                             $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
-                            \Seaslog::debug ('this is test of debug function');
                             \Seaslog::debug('response__'.json_encode($postStr));
                             //extract post data
                             if (!empty($postStr))
@@ -52,21 +51,42 @@ class Weixin extends Orm
                                                               </xml>";             
                                             if(!empty( $keyword ))
                                             {
-                                              $msgType = "text";
-                                              $contentStr = "你好啊2!";
-                                              $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-                                              echo $resultStr;
+                                                  $msgType = "text";
+                                                  $contentStr = "你好啊2!";
+                                                  // $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                                                  $this->replyText($fromUsername, $toUsername, $contentStr);
+                                                  echo $resultStr;
                                             }
                                             else
                                             {
                                               echo "Input something...";
                                             }
-
                             }
                             else 
                             {
                                   echo "";
                                   exit;
                             }
+            }
+
+            /**
+             *  回复文本信息
+             * 
+             * */
+            public function replyText ($fromUsername, $toUsername, $content)
+            {
+                            $textTpl = "<xml>
+                                                          <ToUserName><![CDATA[%s]]></ToUserName>
+                                                          <FromUserName><![CDATA[%s]]></FromUserName>
+                                                          <CreateTime>%s</CreateTime>
+                                                          <MsgType><![CDATA[%s]]></MsgType>
+                                                          <Content><![CDATA[%s]]></Content>
+                                                          <FuncFlag>0</FuncFlag>
+                                                  </xml>";
+
+                            $time = time ();
+                            $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, 'text', $content);
+                            echo $resultStr;
+
             }
 }

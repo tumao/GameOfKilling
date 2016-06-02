@@ -119,3 +119,16 @@ if(!function_exists('info'))
 		}
 	}
 }
+
+/**
+ * 解析xml
+ * 
+ * */
+if (!function_exists('parse_xml'))
+{
+	function parse_xml ($data)
+	{
+		$parsed = (array) simplexml_load_string ($data, 'SimpleXMLElement', LIBXML_NOCDATA);
+		return $parsed;
+	}
+}
