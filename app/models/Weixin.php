@@ -70,7 +70,7 @@ class Weixin extends Orm
             }
 
             /**
-             *  回复文本信息
+             *  自动回复文本信息
              * 
              * */
             public function replyText ($fromUsername, $toUsername, $content)
@@ -82,11 +82,42 @@ class Weixin extends Orm
                                                           <CreateTime>%s</CreateTime>
                                                           <MsgType><![CDATA[%s]]></MsgType>
                                                           <Content><![CDATA[%s]]></Content>
+                                                          <Url><![CDATA[%s]]></Url>
                                                           <FuncFlag>0</FuncFlag>
                                                   </xml>";
 
                             $time = time ();
-                            $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, 'text', $content);
+                            $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, 'text', $content, "http://baidu.com");
                             echo $resultStr;
+            }
+
+            /**
+             * 回复图文消息
+             * 
+             * */
+            public function replyImgText ($toUser, $fromUser, $textContent, )
+            {
+                            $tpl = "<xml>
+                                            <ToUserName><![CDATA[toUser]]></ToUserName>
+                                            <FromUserName><![CDATA[fromUser]]></FromUserName>
+                                            <CreateTime>12345678</CreateTime>
+                                            <MsgType><![CDATA[news]]></MsgType>
+                                            <ArticleCount>2</ArticleCount>
+                                            <Articles>
+                                                            <item>
+                                                                        <Title><![CDATA[title1]]></Title> 
+                                                                        <Description><![CDATA[description1]]></Description>
+                                                                        <PicUrl><![CDATA[picurl]]></PicUrl>
+                                                                        <Url><![CDATA[url]]></Url>
+                                                            </item>
+                                                            <item>
+                                                                        <Title><![CDATA[title]]></Title>
+                                                                        <Description><![CDATA[description]]></Description>
+                                                                        <PicUrl><![CDATA[picurl]]></PicUrl>
+                                                                        <Url><![CDATA[url]]></Url>
+                                                            </item>
+                                            </Articles>
+                                        </xml>";
+                            $time = time ();
             }
 }
