@@ -26,7 +26,10 @@ class Weixin extends Orm
                         }
               }
 
-
+              /**
+               *    自动回复
+               * 
+               * */
             public function responseMsg()
             {
                             //get post data, May be due to the different environments
@@ -51,15 +54,13 @@ class Weixin extends Orm
                                                               </xml>";             
                                             if(!empty( $keyword ))
                                             {
-                                                  $msgType = "text";
-                                                  $contentStr = "你好啊2!";
-                                                  // $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-                                                  $this->replyText($fromUsername, $toUsername, $contentStr);
-                                                  // echo $resultStr;
+                                                      $msgType = "text";
+                                                      $contentStr = "你好啊!";
+                                                      $this->replyText($fromUsername, $toUsername, $contentStr);
                                             }
                                             else
                                             {
-                                              echo "Input something...";
+                                                        echo "Input something...";
                                             }
                             }
                             else 

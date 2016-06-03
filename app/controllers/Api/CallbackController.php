@@ -38,7 +38,11 @@ class CallbackController extends BaseController
 		    	exit;
 		}
 	}
-
+	/**
+	 * 	--TODO
+	 * 
+	 * 
+	 * */
 	public function getXmlData ()
 	{
 		$xmlStr = '<xml>
@@ -49,7 +53,5 @@ class CallbackController extends BaseController
 				<Content><![CDATA[22222]]></Content>
 				<MsgId>6291469344908684100</MsgId>
 			</xml>';
-
 	}
-
 }
