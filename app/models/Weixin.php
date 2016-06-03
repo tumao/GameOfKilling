@@ -53,9 +53,9 @@ class Weixin extends Orm
                                             {
                                                   $msgType = "text";
                                                   $contentStr = "你好啊2!";
-                                                  $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-                                                  // $this->replyText($fromUsername, $toUsername, $contentStr);
-                                                  echo $resultStr;
+                                                  // $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                                                  $this->replyText($fromUsername, $toUsername, $contentStr);
+                                                  // echo $resultStr;
                                             }
                                             else
                                             {
