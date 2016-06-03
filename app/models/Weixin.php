@@ -82,12 +82,11 @@ class Weixin extends Orm
                                                           <CreateTime>%s</CreateTime>
                                                           <MsgType><![CDATA[%s]]></MsgType>
                                                           <Content><![CDATA[%s]]></Content>
-                                                          <Url><![CDATA[%s]]></Url>
                                                           <FuncFlag>0</FuncFlag>
                                                   </xml>";
 
                             $time = time ();
-                            $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, 'text', $content, "http://baidu.com");
+                            $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, 'text', $content);
                             echo $resultStr;
             }
 
