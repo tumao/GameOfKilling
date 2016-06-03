@@ -94,7 +94,7 @@ class Weixin extends Orm
              * 回复图文消息
              * 
              * */
-            public function replyImgText ($toUser, $fromUser, $textContent, )
+            public function replyImgText ($toUser, $fromUser, $textContent)
             {
                             $tpl = "<xml>
                                             <ToUserName><![CDATA[toUser]]></ToUserName>
