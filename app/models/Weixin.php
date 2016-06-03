@@ -75,6 +75,7 @@ class Weixin extends Orm
              * */
             public function replyText ($fromUsername, $toUsername, $content)
             {
+                            $content = "this is content of my test";
                             $textTpl = "<xml>
                                                           <ToUserName><![CDATA[%s]]></ToUserName>
                                                           <FromUserName><![CDATA[%s]]></FromUserName>
