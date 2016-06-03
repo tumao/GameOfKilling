@@ -35,7 +35,7 @@ Route::post('api/weixin', 'App\Api\CallbackController@weixin');
 Route::get ('api/getxml', 'App\Api\CallbackController@getXmlData');
 
 // front
-Route::get ('opening', 'App\Controllers\Front\Game\IndexController@opening');			// 开局
+Route::get ('opening', 'App\Controllers\Front\Game\IndexController@opening');			// 开局，创建游戏
 Route::get('entering', 'App\Controllers\Front\Game\IndexController@entering');
 Route::get ('roomlist', 'App\Controllers\Front\Game\IndexController@roomList');
 

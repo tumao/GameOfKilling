@@ -13,20 +13,20 @@ class IndexController extends BaseController
 	}
 
 	/**
-	 * 	开局
-	 * 
+	 * 开局,创建房间
 	 * 
 	 * */
 	public function opening ()
 	{
-		$this -> view -> addTitle ('开局');
-
+		$this -> view -> addTitle ('创建游戏');
+		$this -> view ->addCss ('front/css/game.css');
+		$this -> view ->addJs ('front/js/game.js');
+		
 		$this -> view -> show ('game/index');
 	}
 
 	/**
-	 * 	进入游戏
-	 * 
+	 * 进入游戏
 	 * 
 	 * */
 	public function entering ()
@@ -35,13 +35,14 @@ class IndexController extends BaseController
 	}
 
 	/**
-	 * 	房间列表
+	 * 房间列表
 	 * 
 	 * */
 	public function roomList ()
 	{
 		$this -> view -> addCss ('front/css/roomlist.css');
-
+		$this -> view -> addJs ('front/js/game.js');
+		
 		$this -> view -> show ('game/roomlist');
 	}
 }
