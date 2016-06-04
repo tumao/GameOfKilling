@@ -16,6 +16,7 @@ body{
 }
 .body input{
 	width: 20px;
+	height: 35px;
 }
 #create_room{
 	width :100%;

@@ -36,6 +36,7 @@ Route::get ('api/getxml', 'App\Api\CallbackController@getXmlData');
 
 // front
 Route::get ('opening', 'App\Controllers\Front\Game\IndexController@opening');			// 开局，创建游戏
+Route::post ('opening', 'App\Controllers\Front\Game\IndexController@opening');
 Route::get('entering', 'App\Controllers\Front\Game\IndexController@entering');
 Route::get ('roomlist', 'App\Controllers\Front\Game\IndexController@roomList');
 

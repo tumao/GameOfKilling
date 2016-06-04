@@ -59,6 +59,17 @@ class Controller
 	}
 
 	/**
+	 * 判断请求方法
+	 * 
+	 * */
+	protected function method ()
+	{
+		$method = $_SERVER['REQUEST_METHOD'];
+		$method = strtoupper ($method);
+		return $method;
+	}
+
+	/**
 	 *	获取当前登陆用户的id
 	 *
 	 *

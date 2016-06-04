@@ -18,11 +18,21 @@ class IndexController extends BaseController
 	 * */
 	public function opening ()
 	{
-		$this -> view -> addTitle ('创建游戏');
-		$this -> view ->addCss ('front/css/game.css');
-		$this -> view ->addJs ('front/js/game.js');
-		
-		$this -> view -> show ('game/index');
+		if ($this->method () == 'GET')
+		{
+			$this -> view -> addTitle ('创建游戏');
+			$this -> view ->addCss ('front/css/game.css');
+			$this -> view ->addJs ('front/js/game.js');
+			
+			$this -> view -> show ('game/index');
+		}
+		else
+		{
+			$killer = $_POST['killer'];
+			$commoner = $_POST['commoner'];
+			$police = $_POST['police'];
+			
+		}
 	}
 
 	/**
