@@ -60,7 +60,7 @@ class IndexController extends BaseController
 		$url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid={$appid}
 			&redirect_uri={$redirectUrl}
 			&response_type=code
-			&scope=snsapi_base
+			&scope=snsapi_userinfo
 			&state=STATE#wechat_redirect";
 		\SeasLog::debug ('url##'.$url);
 		$this -> view -> assign ('url', $url);
