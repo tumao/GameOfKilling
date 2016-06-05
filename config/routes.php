@@ -33,6 +33,7 @@ Route::get('api/test', 'App\Api\FileController@test');
 Route::get('api/weixin', 'App\Api\CallbackController@weixin');
 Route::post('api/weixin', 'App\Api\CallbackController@weixin');
 Route::get ('api/getxml', 'App\Api\CallbackController@getXmlData');
+Route::get ('api/getcode', 'App\Api\CallbackController@getCode');
 
 // front
 Route::get ('opening', 'App\Controllers\Front\Game\IndexController@opening');			// 开局，创建游戏
