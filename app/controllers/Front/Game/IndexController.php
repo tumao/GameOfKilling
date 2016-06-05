@@ -55,7 +55,7 @@ class IndexController extends BaseController
 		$access_token = $this->get_token ();
 		$open_id = $this -> get_openid ();
 		$appid = getConfig('wechat.APPID');
-		$redirectUrl = urlencode('http://socketio.cn/getWxUserInfo');
+		$redirectUrl = urlencode('http://socketio.cn/getwxinfo');
 
 		$url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid={$appid}
 			&redirect_uri={$redirectUrl}
