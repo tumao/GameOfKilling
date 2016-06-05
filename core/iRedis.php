@@ -107,4 +107,57 @@ class iRedis
 
   }
 
+/**
+ *  key对应多个不同的value,如果value相同则不进行存储     （集合[set]）
+ * 
+ * */
+  public static function sadd ($key, $array)
+  {
+            self::init();
+            foreach ($array as $value)
+            {
+                    self::$redis -> sadd($key, $value);
+            }
+  }
+
+/**
+ * 获取key对应的value                （集合[set]）
+ * 
+ * */
+  public static function smembers ($key)
+  {
+            self::init ();
+            return  self::$redis -> smembers ($key);
+  }
+
+
+/**
+ * 查看是否保存了对应的key
+ * 
+ * */
+  public static function sismember ($key)
+  { 
+            self::init ();
+            return  self::$redis -> sismember ($key);
+  }
+
+  /**
+   *  增量为1
+   * 
+   * */
+  public static function incr ($key)
+  {
+          self::init ();
+          self::$redis -> incr ($key);
+  }
+
+  /**
+   *  增量为step
+   * 
+   * */
+  public static function incrBy ($key, $step = 1)
+  {
+          self::init ();
+          self::$redis ->incrBy ($key, $step);
+  }
 }

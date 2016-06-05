@@ -11,14 +11,14 @@ var Opening = (function ($){
 		var police = document.getElementById('police').value;
 		var commoner = document.getElementById('commoner').value;
 		var password = document.getElementById('password').value;
-		
+
 		$.ajax({
-			url 	:'',
+			url 	:'/opening',
 			data 	: {killer:killer, police:police, commoner:commoner},
 			type 	: 'post',
 			dataType : 'json',
 			success : function (rp){
-
+				
 			}
 		});
 	};

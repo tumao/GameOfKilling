@@ -243,18 +243,6 @@ class Controller
 			&response_type=code
 			&scope=snsapi_base
 			&state=STATE#wechat_redirect");
-		return $result;		
-	}
-
-	/**
-	 *	获取用户的信息 ---todo
-	 *
-	 *
-	 */
-	protected function get_userinfo()
-	{
-		$result = $this->sent_get("https://api.weixin.qq.com/cgi-bin/user/info?access_token={$token}
-			&openid=OPENID
-		&lang=zh_CN");
+		return $result;
 	}
 }

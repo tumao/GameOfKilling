@@ -9,6 +9,10 @@ class Weixin extends Orm
 
   	public $timestamps = false;
 
+              /**
+               *  检验签名
+               * 
+               * */
               public function checkSignature($timestamps, $nonce, $signature)
               {
                         $token = getConfig('wechat.TOKEN'); // 获取配置中的token
@@ -119,5 +123,18 @@ class Weixin extends Orm
                                             </Articles>
                                         </xml>";
                             $time = time ();
+            }
+
+
+            /**
+             *  获取微信用户的用户信息
+             * 
+             * */
+            public function getWxUserInfo ()
+            {
+                    $url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token=%s&openid=%s&lang=zh_CN";      // 两个参数， 1.access_token, 2、openid
+
+                    $result = $this -> sent_get ($url);
+                    return $result;
             }
 }
