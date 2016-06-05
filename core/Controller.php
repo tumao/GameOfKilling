@@ -236,13 +236,10 @@ class Controller
 	 */
 	protected function get_openid()
 	{
-		
-		
-		// $result = $this->sent_get("https://open.weixin.qq.com/connect/oauth2/authorize?appid={$appid}
-			// &redirect_uri={$redirectUrl}
-			// &response_type=code
-			// &scope=snsapi_base
-			// &state=STATE#wechat_redirect");
-		// return $result;
+		if (isset($_SESSION['openid']))		
+		{
+			return $_SESSION['openid'];
+		}
+		return null;
 	}
 }
