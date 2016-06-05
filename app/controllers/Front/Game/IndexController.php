@@ -62,6 +62,7 @@ class IndexController extends BaseController
 			&response_type=code
 			&scope=snsapi_base
 			&state=STATE#wechat_redirect";
+		\SeasLog::debug ('url##'.$url);
 		$this -> view -> assign ('url', $url);
 		$this -> view -> show ('game/roomlist');
 	}
