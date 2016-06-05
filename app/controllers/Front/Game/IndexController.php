@@ -81,32 +81,24 @@ class IndexController extends BaseController
 		$url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid={$appid}&secret={$secret}&code={$code}&grant_type=authorization_code";
 		\SeasLog::debug ('wxif####'.$url);
 		$result = $this->sent_get ($url);
-		var_dump( $result);
+		$result = json_decode($result);
+		if ($result && $result->openid)
+		{
+			$_SESSION['openid'] = $result->openid;
+		}
+
+		$userinfo = $this->getUserInfo ($result->openid);
+		var_dump( $userinfo);
 	}
 
-	public function getUserInfo ()
+	private function getUserInfo ($openid)
 	{
 		$access_token = $this -> get_token();
-		// $openid = $this -> get_openid ();
 		
-		if(isset($_SESSION['openid']))
-		{
-			$openid = $_SESSION['openid'];
-		}
-		else
-		{
-			$openid = session_id();
-		}
-		$url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token={$access_token}
-			&openid={$openid}&lang=zh_CN";
+		$url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token={$access_token}&openid={$openid}&lang=zh_CN";
 
-		\SeasLog::debug ('url####' . $url);
 		$result = $this -> sent_get ($url);
 		\SeasLog::debug ('userinfo###' . $result);
-	}
-
-	public function test()
-	{
-
+		return $result;
 	}
 }
