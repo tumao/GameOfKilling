@@ -83,10 +83,12 @@ class IndexController extends BaseController
 			&code={$code}
 			&grant_type=authorization_code";
 		\SeasLog::debug ('wxif####'.$url);
-		$result = file_get_contents($url);
-		echo 111;
-		var_dump( $result);
-		echo 222;
+		// $result = file_get_contents($url);
+		// echo 111;
+		// var_dump( $result);
+		// echo 222;
+		$result = $this->sent_get ($url);
+		var_dump( json_decode($result));
 	}
 
 	public function getUserInfo ()
@@ -105,7 +107,7 @@ class IndexController extends BaseController
 		$url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token={$access_token}
 			&openid={$openid}&lang=zh_CN";
 
-		\SeasLog::debug ('url####'.$url);
+		\SeasLog::debug ('url####' . $url);
 		$result = $this -> sent_get ($url);
 		\SeasLog::debug ('userinfo###' . $result);
 	}
