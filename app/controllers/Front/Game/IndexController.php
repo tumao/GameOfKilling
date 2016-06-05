@@ -57,11 +57,7 @@ class IndexController extends BaseController
 		$appid = getConfig('wechat.APPID');
 		$redirectUrl = urlencode('http://socketio.cn/getwxinfo');
 
-		$url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid={$appid}
-			&redirect_uri={$redirectUrl}
-			&response_type=code
-			&scope=snsapi_userinfo
-			&state=STATE#wechat_redirect";
+		$url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid={$appid}&redirect_uri={$redirectUrl}&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
 		\SeasLog::debug ('url##'.$url);
 		$this -> view -> assign ('url', $url);
 		$this -> view -> show ('game/roomlist');
