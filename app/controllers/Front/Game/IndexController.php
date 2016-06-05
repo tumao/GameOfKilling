@@ -83,7 +83,7 @@ class IndexController extends BaseController
 			&code={$code}
 			&grant_type=authorization_code";
 		\SeasLog::debug ('wxif####'.$url);
-		$result = $this -> sent_get ($url);
+		$result = file_get_contents($url);
 		echo 111;
 		var_dump( $result);
 		echo 222;
