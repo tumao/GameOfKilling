@@ -82,7 +82,7 @@ class IndexController extends BaseController
 		\SeasLog::debug ('wxif####'.$url);
 		$result = $this->sent_get ($url);
 		$result = json_decode($result);
-		if ($result && $result->openid)
+		if $result->openid)
 		{
 			$_SESSION['openid'] = $result->openid;
 		}
@@ -96,7 +96,7 @@ class IndexController extends BaseController
 		$access_token = $this -> get_token();
 		
 		// $url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token={$access_token}&openid={$openid}&lang=zh_CN";
-		$url = "https://api.weixin.qq.com/sns/userinfo?access_token={$access_token}&openid={$openid}&lang=zh_CN"
+		$url = "https://api.weixin.qq.com/sns/userinfo?access_token={$access_token}&openid={$openid}&lang=zh_CN";
 
 		$result = $this -> sent_get ($url);
 		\SeasLog::debug ('userinfo###' . $result);
