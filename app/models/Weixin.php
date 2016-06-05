@@ -48,7 +48,8 @@ class Weixin extends Orm
                                         if (!empty($fromUsername))
                                         {
                                                     $_SESSION['openid'] = $fromUsername;
-                                                    \Seaslog::debug ("openid###".$_SESSION['openid']);
+                                                    setcookie('openid', $fromUsername);
+                                                    \Seaslog::debug ("openid###".$_COOKIE['openid']);
                                         }
                                         $toUsername = $postObj->ToUserName;
                                         $keyword = trim($postObj->Content);
