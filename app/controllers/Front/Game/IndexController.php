@@ -82,10 +82,8 @@ class IndexController extends BaseController
 			&secret={$secret}
 			&code={$code}
 			&grant_type=authorization_code";
-		\SeasLog::debug ("infolink#".$url);
 		$result = $this -> sent_get ($url);
 
-		\SeasLog::debug ("info###". $result);
 	}
 
 	public function getUserInfo ()
@@ -94,6 +92,8 @@ class IndexController extends BaseController
 		$openid = $this -> get_openid ();
 		$url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token={$access_token}
 			&openid={$openid}&lang=zh_CN";
+
+		\SeasLog::debug ('url####'.$url);
 		$result = $this -> sent_get ($url);
 		\SeasLog::debug ('userinfo###' . $result);
 	}
