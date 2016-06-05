@@ -55,7 +55,7 @@ class IndexController extends BaseController
 		$access_token = $this->get_token ();
 		$open_id = $this -> get_openid ();
 		$appid = getConfig('wechat.APPID');
-		$redirectUrl = urlencode('http://socketio.cn');
+		$redirectUrl = urlencode('http://socketio.cn/getcode');
 		// $user_info = $Weixin ->getWxUserInfo ($access_token, $get_openid);
 		$url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid={$appid}
 			&redirect_uri={$redirectUrl}
@@ -65,5 +65,13 @@ class IndexController extends BaseController
 		\SeasLog::debug ('url##'.$url);
 		$this -> view -> assign ('url', $url);
 		$this -> view -> show ('game/roomlist');
+	}
+
+	public function getCode ()
+	{
+		$code = trim ($_GET['code']);
+		var_dump( $code);
+
+		\SeasLog::debug ("code###".$code);
 	}
 }

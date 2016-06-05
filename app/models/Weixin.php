@@ -38,7 +38,7 @@ class Weixin extends Orm
             {
                             //get post data, May be due to the different environments
                             $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
-                            \Seaslog::debug('response__'.json_encode($postStr));
+                            // \Seaslog::debug('response__'.json_encode($postStr));
                             //extract post data
                             if (!empty($postStr))
                             {
