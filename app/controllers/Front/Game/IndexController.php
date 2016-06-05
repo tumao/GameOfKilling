@@ -69,9 +69,13 @@ class IndexController extends BaseController
 
 	public function getCode ()
 	{
-		$code = trim ($_GET['code']);
-		var_dump( $code);
+		if (isset ($_GET['code']))
+		{
+			$code = trim ($_GET['code']);
+			return $code;
+		}
 
-		\SeasLog::debug ("code###".$code);
+		echo "sorry, error";
+		exit();
 	}
 }
