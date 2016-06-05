@@ -203,22 +203,22 @@ class Controller
 		$appid = $this->getaid();
 		$secret = $this->getsec();
 
-		if($token = \iRedis::get('token') && !$new_token)
-		{
-			return $token;
-		}
-		else
-		{
+		// if($token = \iRedis::get('token') && !$new_token)
+		// {
+		// 	return $token;
+		// }
+		// else
+		// {
 			$result = $this->sent_get("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={$appid}&secret={$secret}");	// 获取的数据为json格式
 			$result = json_decode($result);
 			$token = $result->access_token;
-			if($token)	// 将获取到的token存入redis
-			{
-				\iRedis::set('token',$token,$result->expires_in, 's');
-			}
+			// if($token)	// 将获取到的token存入redis
+			// {
+			// 	\iRedis::set('token',$token,$result->expires_in, 's');
+			// }
 
 			return $token;
-		}
+		// }
 	}
 
 	/**
