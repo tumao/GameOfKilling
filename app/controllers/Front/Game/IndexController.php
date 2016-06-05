@@ -2,6 +2,8 @@
 namespace App\Controllers\Front\Game;
 
 use App\Controllers\BaseController;
+use App\Models\Game;
+use App\Models\Weixin;
 
 class IndexController extends BaseController
 {
@@ -31,7 +33,6 @@ class IndexController extends BaseController
 			$killer = $_POST['killer'];
 			$commoner = $_POST['commoner'];
 			$police = $_POST['police'];
-			
 		}
 	}
 
@@ -50,9 +51,13 @@ class IndexController extends BaseController
 	 * */
 	public function roomList ()
 	{
-		$this -> view -> addCss ('front/css/roomlist.css');
-		$this -> view -> addJs ('front/js/game.js');
-		
-		$this -> view -> show ('game/roomlist');
+		// $game = new Game ();
+		// var_dump ($game ->getIncRandRoom());
+		$Weixin = new Weixin();
+		$access_token = $this->get_token ();
+		$open_id = $this -> get_openid ();
+		$user_info = $Weixin ->getWxUserInfo ($access_token, $get_openid);
+
+		\SeasLog::debug ('user_info' . $user_info);
 	}
 }
