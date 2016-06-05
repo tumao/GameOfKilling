@@ -89,7 +89,16 @@ class IndexController extends BaseController
 	public function getUserInfo ()
 	{
 		$access_token = $this -> get_token();
-		$openid = $this -> get_openid ();
+		// $openid = $this -> get_openid ();
+		
+		if(isset($_SESSION['openid']))
+		{
+			$openid = $_SESSION['openid'];
+		}
+		else
+		{
+			$openid = 'error';
+		}
 		$url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token={$access_token}
 			&openid={$openid}&lang=zh_CN";
 
