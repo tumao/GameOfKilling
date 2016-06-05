@@ -55,8 +55,8 @@ class IndexController extends BaseController
 		$access_token = $this->get_token ();
 		$open_id = $this -> get_openid ();
 		$appid = getConfig('wechat.APPID');
-		$redirectUrl = urlencode('http://socketio.cn/getcode');
-		// $user_info = $Weixin ->getWxUserInfo ($access_token, $get_openid);
+		$redirectUrl = urlencode('http://socketio.cn/getWxUserInfo');
+
 		$url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid={$appid}
 			&redirect_uri={$redirectUrl}
 			&response_type=code
@@ -67,15 +67,23 @@ class IndexController extends BaseController
 		$this -> view -> show ('game/roomlist');
 	}
 
-	public function getCode ()
+	public function getWxUserInfo ()
 	{
-		if (isset ($_GET['code']))
+		if (!isset($_GET['code']))
 		{
-			$code = trim ($_GET['code']);
-			return $code;
+			echo "error";
+			exit ();
 		}
 
-		echo "sorry, error";
-		exit();
+		$code = trim ($_GET['code']);
+		$appid = getConfig('wechat.APPID');
+		$secret = getConfig('wechat.SECRET');
+		$url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid={$appid}
+			&secret={$secret}
+			&code={$code}
+			&grant_type=authorization_code";
+		$result = $this -> sent_get ($url);
+
+		\SeasLog::debug ("info###". $result);
 	}
 }
