@@ -48,6 +48,7 @@ class Weixin extends Orm
                                         if (!empty($fromUsername))
                                         {
                                                     session_id ($fromUsername);
+                                                    session_start();
                                                     $_SESSION['openid'] = $fromUsername;
                                                     \Seaslog::debug ('session_id###'.session_id());
                                         }
