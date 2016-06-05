@@ -10,3 +10,4 @@
 		<li><a href="test">房间5</a></li>
 	</ul>
 </div>
+<a href="{$url}">跳转</a>

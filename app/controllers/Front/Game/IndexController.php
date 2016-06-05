@@ -51,13 +51,18 @@ class IndexController extends BaseController
 	 * */
 	public function roomList ()
 	{
-		// $game = new Game ();
-		// var_dump ($game ->getIncRandRoom());
 		$Weixin = new Weixin();
 		$access_token = $this->get_token ();
 		$open_id = $this -> get_openid ();
-		$user_info = $Weixin ->getWxUserInfo ($access_token, $get_openid);
-
-		\SeasLog::debug ('user_info' . $user_info);
+		$appid = getConfig('wechat.APPID');
+		$redirectUrl = urlencode('http://socketio.cn');
+		// $user_info = $Weixin ->getWxUserInfo ($access_token, $get_openid);
+		$url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid={$appid}
+			&redirect_uri={$redirectUrl}
+			&response_type=code
+			&scope=snsapi_base
+			&state=STATE#wechat_redirect";
+		$this -> view -> assign ('url', $url);
+		$this -> view -> show ('game/roomlist');
 	}
 }
