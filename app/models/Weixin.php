@@ -45,14 +45,6 @@ class Weixin extends Orm
                                         
                                         $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
                                         $fromUsername = $postObj->FromUserName;
-                                        if (!empty($fromUsername))
-                                        {
-                                                    if (!isset($_SESSION['openid']))
-                                                    {
-                                                                $_SESSION['openid'] = $fromUsername;    
-                                                    }
-                                                    \Seaslog::debug ('session_id###'.session_id());
-                                        }
                                         $toUsername = $postObj->ToUserName;
                                         $keyword = trim($postObj->Content);
                                         $time = time();
