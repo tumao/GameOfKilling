@@ -82,7 +82,7 @@ class IndexController extends BaseController
 		\SeasLog::debug ('wxif####'.$url);
 		$result = $this->sent_get ($url);
 		$result = json_decode($result);
-		if $result->openid)
+		if ($result->openid)
 		{
 			$_SESSION['openid'] = $result->openid;
 		}
