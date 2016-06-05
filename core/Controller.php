@@ -212,7 +212,8 @@ class Controller
 			$token = $result->access_token;
 			if($token)	// 将获取到的token存入redis
 			{
-				\iRedis::set('token',$token,$result->expires_in, 's');
+				// \iRedis::set('token',$token,$result->expires_in, 's');
+				\iRedis::set('token',$token, '300', 's');
 			}
 
 			return $token;
