@@ -82,6 +82,7 @@ class IndexController extends BaseController
 			&secret={$secret}
 			&code={$code}
 			&grant_type=authorization_code";
+		\SeasLog::debug ("infolink#".$url);
 		$result = $this -> sent_get ($url);
 
 		\SeasLog::debug ("info###". $result);
