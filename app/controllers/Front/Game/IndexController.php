@@ -78,13 +78,10 @@ class IndexController extends BaseController
 		$code = trim ($_GET['code']);
 		$appid = getConfig('wechat.APPID');
 		$secret = getConfig('wechat.SECRET');
-		$url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid={$appid}
-			&secret={$secret}
-			&code={$code}
-			&grant_type=authorization_code";
+		$url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid={$appid}&secret={$secret}&code={$code}&grant_type=authorization_code";
 		\SeasLog::debug ('wxif####'.$url);
 		$result = $this->sent_get ($url);
-		var_dump( json_decode($result));
+		var_dump( $result);
 	}
 
 	public function getUserInfo ()
@@ -110,6 +107,6 @@ class IndexController extends BaseController
 
 	public function test()
 	{
-		
+
 	}
 }
