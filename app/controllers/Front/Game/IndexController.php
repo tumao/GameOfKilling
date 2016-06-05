@@ -97,7 +97,7 @@ class IndexController extends BaseController
 		
 		// $url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token={$access_token}&openid={$openid}&lang=zh_CN";
 		$url = "https://api.weixin.qq.com/sns/userinfo?access_token={$access_token}&openid={$openid}&lang=zh_CN";
-
+		\SeasLog::debug('ttttt#'.$url);
 		$result = $this -> sent_get ($url);
 		\SeasLog::debug ('userinfo###' . $result);
 		return $result;
