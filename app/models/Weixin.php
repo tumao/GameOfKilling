@@ -38,7 +38,7 @@ class Weixin extends Orm
             {
                             //get post data, May be due to the different environments
                             $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
-                            \Seaslog::debug('response__'.json_encode($postStr));
+                            // \Seaslog::debug('response__'.json_encode($postStr));
                             //extract post data
                             if (!empty($postStr))
                             {
@@ -48,7 +48,7 @@ class Weixin extends Orm
                                         if (!empty($fromUsername))
                                         {
                                                     $_SESSION['openid'] = $fromUsername;
-                                                    \Seaslog::debug ("openid".$fromUsername);
+                                                    \Seaslog::debug ("openid###".$_SESSION['openid']);
                                         }
                                         $toUsername = $postObj->ToUserName;
                                         $keyword = trim($postObj->Content);
@@ -130,16 +130,4 @@ class Weixin extends Orm
                             $time = time ();
             }
 
-
-            /**
-             *  获取微信用户的用户信息
-             * 
-             * */
-            public function getWxUserInfo ()
-            {
-                    $url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token=%s&openid=%s&lang=zh_CN";      // 两个参数， 1.access_token, 2、openid
-
-                    $result = $this -> sent_get ($url);
-                    return $result;
-            }
 }
