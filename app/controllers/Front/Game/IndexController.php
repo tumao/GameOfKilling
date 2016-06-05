@@ -91,7 +91,10 @@ class IndexController extends BaseController
 	public function getUserInfo ()
 	{
 		$access_token = $this -> get_token();
+		$openid = $this -> get_openid ();
 		$url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token={$access_token}
-			&openid=OPENID&lang=zh_CN";
+			&openid={$openid}&lang=zh_CN";
+		$result = $this -> sent_get ($url);
+		\SeasLog::debug ('userinfo###' . $result);
 	}
 }
