@@ -87,4 +87,11 @@ class IndexController extends BaseController
 
 		\SeasLog::debug ("info###". $result);
 	}
+
+	public function getUserInfo ()
+	{
+		$access_token = $this -> get_token();
+		$url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token={$access_token}
+			&openid=OPENID&lang=zh_CN";
+	}
 }
