@@ -47,7 +47,10 @@ class Weixin extends Orm
                                         $fromUsername = $postObj->FromUserName;
                                         if (!empty($fromUsername))
                                         {
-                                                    $_SESSION['openid'] = $fromUsername;
+                                                    if (!isset($_SESSION['openid']))
+                                                    {
+                                                                $_SESSION['openid'] = $fromUsername;    
+                                                    }
                                                     \Seaslog::debug ('session_id###'.session_id());
                                         }
                                         $toUsername = $postObj->ToUserName;
