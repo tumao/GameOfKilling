@@ -63,6 +63,11 @@ class IndexController extends BaseController
 		$this -> view -> show ('game/roomlist');
 	}
 
+	/**
+	 * 微信授权回调地址
+	 * 
+	 * 
+	 * */
 	public function getWxUserInfo ()
 	{
 		if (!isset($_GET['code']))
@@ -75,7 +80,7 @@ class IndexController extends BaseController
 		$appid = getConfig('wechat.APPID');
 		$secret = getConfig('wechat.SECRET');
 		$url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid={$appid}&secret={$secret}&code={$code}&grant_type=authorization_code";
-		\SeasLog::debug ('wxif####'.$url);
+
 		$result = $this->sent_get ($url);
 		$result = json_decode($result);
 		if ($result->openid)
@@ -83,19 +88,24 @@ class IndexController extends BaseController
 			$_SESSION['openid'] = $result->openid;
 		}
 
-		$userinfo = $this->getUserInfo ($result->openid);
-		var_dump( $userinfo);
+		$userinfo = $this->getUserInfo ($result->openid);		// 获取用户信息
+		$userinfo = json_decode ($userinfo);
+		if ($userinfo)
+		{
+			$_SESSION['nickname'] = $userinfo->nickname;
+			$_SESSION['headimgurl'] = $userinfo->headimgurl;
+		}
 	}
 
+	/**
+	 * 获取用户信息
+	 * 
+	 * */
 	private function getUserInfo ($openid)
 	{
 		$access_token = $this -> get_token();
-		
-		// $url = "https://api.weixin.qq.com/sns/userinfo?access_token={$access_token}&openid={$openid}&lang=zh_CN";
 		$url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token={$access_token}&openid={$openid}";
-		\SeasLog::debug('ttttt#'.$url);
 		$result = $this -> sent_get ($url);
-		\SeasLog::debug ('userinfo###' . $result);
 		return $result;
 	}
 }
