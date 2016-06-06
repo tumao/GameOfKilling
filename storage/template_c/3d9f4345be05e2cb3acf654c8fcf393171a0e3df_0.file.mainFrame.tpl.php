@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-03-11 14:42:52
+/* Smarty version 3.1.29, created on 2016-05-21 17:37:04
   from "/www/GameOfKilling/app/views/admin/default/mainFrame.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_56e268ecf12bc5_97785492',
+  'unifunc' => 'content_57402c40e0ded6_28833671',
   'file_dependency' => 
   array (
     '3d9f4345be05e2cb3acf654c8fcf393171a0e3df' => 
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_56e268ecf12bc5_97785492 ($_smarty_tpl) {
+function content_57402c40e0ded6_28833671 ($_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>

@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-03-11 14:42:53
+/* Smarty version 3.1.29, created on 2016-05-21 17:37:04
   from "/www/GameOfKilling/app/views/admin/default/shared/header.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_56e268ed0897d5_01652426',
+  'unifunc' => 'content_57402c40e73649_08219240',
   'file_dependency' => 
   array (
     'a5156f19472367232916812591ad51ed0875d2d2' => 
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_56e268ed0897d5_01652426 ($_smarty_tpl) {
+function content_57402c40e73649_08219240 ($_smarty_tpl) {
 ?>
  <div data-options="region:'north'" style="height:90px; background:url(/resources/admin/default/image/header_bg.gif)"><!-- 页头 -->
 	<div class="logo">

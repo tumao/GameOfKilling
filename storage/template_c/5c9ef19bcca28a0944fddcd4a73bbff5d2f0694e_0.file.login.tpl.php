@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-03-11 14:42:53
+/* Smarty version 3.1.29, created on 2016-05-21 21:06:13
   from "/www/GameOfKilling/app/views/admin/default/user/login.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_56e268ed33b8a8_12901479',
+  'unifunc' => 'content_57405d450d4cc2_26089246',
   'file_dependency' => 
   array (
     '5c9ef19bcca28a0944fddcd4a73bbff5d2f0694e' => 
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_56e268ed33b8a8_12901479 ($_smarty_tpl) {
+function content_57405d450d4cc2_26089246 ($_smarty_tpl) {
 ?>
 <div class="login">
 	<div class="easyui-panel" title="后台登陆" style="width:400px;padding:30px 70px 20px 70px; margin-left:auto; margin-right:auto;">
