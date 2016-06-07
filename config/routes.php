@@ -35,11 +35,11 @@ Route::post('api/weixin', 'App\Api\CallbackController@weixin');
 Route::get ('api/getxml', 'App\Api\CallbackController@getXmlData');
 
 // front
-Route::get ('opening', 'App\Controllers\Front\Game\IndexController@opening');			// 开局，创建游戏
+Route::get ('opening', 'App\Controllers\Front\Game\IndexController@opening');		// 开局，创建游戏
 Route::post ('opening', 'App\Controllers\Front\Game\IndexController@opening');
 Route::get('entering', 'App\Controllers\Front\Game\IndexController@entering');
 Route::get ('roomlist', 'App\Controllers\Front\Game\IndexController@roomList');
-Route::get ('getwxinfo', 'App\Controllers\Front\Game\IndexController@getWxUserInfo');			// 获取code
+Route::get ('getwxinfo', 'App\Controllers\Front\Game\IndexController@getWxUserInfo');	// 获取code
 
 Route::get('informs', 'App\Controllers\Front\Main\MainController@inform');			// 通知
 Route::get('abstracts', 'App\Controllers\Front\Main\MainController@abstracts');		// 简介

@@ -13,7 +13,7 @@ class Game extends Orm
        *  获取一个递增 不连续的房间号
        * 
        * */
-      public function getIncRandRoom ()
+      private function getIncRandRoom ()
       {
                 $redis = new \iRedis ();
                 if (!$redis->get('roomNum'))
@@ -26,5 +26,21 @@ class Game extends Orm
                 return $redis->get('roomNum');
       }
 
-
+      /**
+       * 创建游戏
+       * 
+       * @param array $setting 房间配置信息
+       * @param string  $password 房间密码
+       * @return string 房间号
+       * */
+      public function createGame ($setting, $password = '')
+      {
+                $roomId = $this -> getIncRandRoom ();             // 获取递增不连续的房间号
+                $setting = json_encode ($setting);
+                DB::insert('INSERT INTO 
+                                          `game` (roomid, setting, password)
+                                          VALUES (?, ?, ?) ',
+                                         [$roomId, $setting, $password]);
+                return $roomId;
+      }
 }
