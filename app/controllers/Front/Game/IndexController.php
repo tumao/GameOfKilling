@@ -35,7 +35,7 @@ class IndexController extends BaseController
 			$police = $_POST['police'];
 			$setting = [$killer, $commoner, $police];
 			$Game = new Game ();
-			$Game->
+			$Game->createGame($setting, '123456');
 		}
 	}
 
