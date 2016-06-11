@@ -43,23 +43,15 @@ class Weixin extends Orm
                             if (!empty($postStr))
                             {
                                         
-                                        $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
-                                        $fromUsername = $postObj->FromUserName;
-                                        $toUsername = $postObj->ToUserName;
-                                        $keyword = trim($postObj->Content);
-                                        $time = time();
-                                        $textTpl = "<xml>
-                                                                      <ToUserName><![CDATA[%s]]></ToUserName>
-                                                                      <FromUserName><![CDATA[%s]]></FromUserName>
-                                                                      <CreateTime>%s</CreateTime>
-                                                                      <MsgType><![CDATA[%s]]></MsgType>
-                                                                      <Content><![CDATA[%s]]></Content>
-                                                                      <FuncFlag>0</FuncFlag>
-                                                              </xml>";             
+                                            $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
+                                            $fromUsername = $postObj->FromUserName;
+                                            $toUsername = $postObj->ToUserName;
+                                            $keyword = trim($postObj->Content);
+                                            $time = time();
                                             if(!empty( $keyword ))
                                             {
+                                                      $contentStr = $this ->getMsgFromQueue($fromUsername, $toUserName, 'text');
                                                       $msgType = "text";
-                                                      $contentStr = "你好啊!";
                                                       $this->replyText($fromUsername, $toUsername, $contentStr);
                                             }
                                             else
@@ -80,8 +72,6 @@ class Weixin extends Orm
              * */
             public function replyText ($fromUsername, $toUsername, $content)
             {
-                            // $content = "this is content of my test";
-                            $content = "https://www.baidu.com";
                             $textTpl = "<xml>
                                                           <ToUserName><![CDATA[%s]]></ToUserName>
                                                           <FromUserName><![CDATA[%s]]></FromUserName>
@@ -166,6 +156,14 @@ class Weixin extends Orm
             {
                         $result = DB::update ("UPDATE `msgQueue` SET `isSent` = ? WHERE id = ?", [1, $id]);
                         return $result;
+            }
+
+            public function getMsgFromQueue ($fromUserName, $toUserName, $msgType='text')
+            {
+                        \Seaslog::debug("#debuginfo####".$fromUsername. '####'.$toUserName);
+                        $result = DB::select ('SELECT * FROM `msgQueue` WHERE  fromUserName = ? AND toUserName = ? AND isSent ORDER BY id DESC', [$fromUsername, $toUsername, $text]);
+                        \Seaslog::debug ('##msgQueue##'. json_encode($result));
+                        // return $result[0]->content;
             }
 
 }
