@@ -114,7 +114,7 @@ class Weixin extends Orm
 
             private function getMsgFromQueue ($fromUserName, $toUserName, $msgType='text')
             {
-                        // \Seaslog::debug("#debuginfo####".$fromUsername. '####'.$toUserName);
+                        \Seaslog::debug("#debuginfo####".$fromUsername. '####'.$toUserName);
                         // $result = DB::select ('SELECT * FROM `msgQueue` WHERE  fromUserName = ? AND toUserName = ? AND isSent ORDER BY id DESC', [$fromUsername, $toUsername, $text]);
                         // \Seaslog::debug ('##msgQueue##'. json_encode($result));
                         // return $result[0]->content;
