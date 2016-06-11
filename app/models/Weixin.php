@@ -125,4 +125,46 @@ class Weixin extends Orm
                             $time = time ();
             }
 
+            public function responseText ($toUser, $fromUser, $content)
+            {
+                        $type = 'text';
+                        $time = time ();
+                        $tpl = "<xml>
+                                                <ToUserName><![CDATA[%s]]></ToUserName>
+                                                <FromUserName><![CDATA[fromUser]]></FromUserName>
+                                                <CreateTime>12345678</CreateTime>
+                                                <MsgType><![CDATA[text]]></MsgType>
+                                                <Content><![CDATA[%s]]></Content>
+                                        </xml>";
+
+                        $this -> sent_post ();
+            }
+
+
+            /**
+             *  将消息添加到队列中
+             * 
+             * 
+             * */
+            public function addMsgToQueue ($fromUserName, $toUserName, $msgType, $content)
+            {
+                        $time = time ();
+                        $isSent = 0;
+                        DB::insert ('INSERT INTO 
+                                `msgQueue`(fromUserName, toUserName, createTime, msgType, content, isSent)
+                                VALUES (?, ?, ?, ?, ?, ?)
+                                ', [$fromUsername, $toUserName, $createTime, $msgType, $content, $isSent]);
+            }
+
+
+            /**
+             *  改变消息队列的状态
+             * 
+             * */
+            public function changQueueType ($id)
+            {
+                        $result = DB::update ("UPDATE `msgQueue` SET `isSent` = ? WHERE id = ?", [1, $id]);
+                        return $result;
+            }
+
 }

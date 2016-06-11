@@ -21,6 +21,10 @@ class Catelogue extends Orm
 		return 1;
 	}
 
+	/**
+	 * 
+	 * 
+	 * */
 	public function update($data, $id)
 	{
 		$result = DB::update("UPDATE `catelogues` SET name=? , path=? , icon=? , memo=? WHERE id=?",[$data['name'],$data['path'],$data['icon'],$data['memo'],$id]);

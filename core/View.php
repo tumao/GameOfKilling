@@ -60,6 +60,11 @@ class View extends \Smarty
 		return APP_PATH.self::VIEW_BASE_PATH.$filePath.'.php';
 	}
 
+	/**
+	 * 
+	 * 
+	 * 
+	 * */
 	public function __destruct()
 	{
 		if($this->viewName)

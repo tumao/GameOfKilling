@@ -4,6 +4,8 @@ namespace App\Controllers\Front\Game;
 use App\Controllers\BaseController;
 use App\Models\Game;
 use App\Models\Weixin;
+use  Symfony\Component\HttpFoundation\Response;
+use Guzzle\Http\Message\Request;
 
 class IndexController extends BaseController
 {
@@ -20,23 +22,43 @@ class IndexController extends BaseController
 	 * */
 	public function opening ()
 	{
-		if ($this->method () == 'GET')
+		$this -> view ->addJs ('front/js/game.js');
+		$this -> view -> addTitle ('创建游戏');
+		$this -> view ->addCss ('front/css/game.css');
+		
+		$this -> view -> show ('game/index');
+	}
+
+
+	/**
+	 * 已经创建的房间
+	 * 
+	 * 
+	 * */
+	public function room()
+	{
+		$this -> view -> addCss ('front/css/room.css');
+		$commoner = $_GET['commoner'];
+		$killer = $_GET['killer'];
+		$police = $_GET['police'];
+		$password = '';
+
+		if (isset($_GET['password']))
 		{
-			$this -> view -> addTitle ('创建游戏');
-			$this -> view ->addCss ('front/css/game.css');
-			$this -> view ->addJs ('front/js/game.js');
-			
-			$this -> view -> show ('game/index');
+			$password = $_GET['password'];
+			 $this -> view -> assign('password', $_GET['password']);
 		}
-		else
-		{
-			$killer = $_POST['killer'];
-			$commoner = $_POST['commoner'];
-			$police = $_POST['police'];
-			$setting = ['killier' =>$killer, 'commoner' => $commoner, 'police'=>  $police];
-			$Game = new Game ();
-			$Game->createGame($setting, '123456');
-		}
+		$setting = ['killer' => $killer, 'commoner' => $commoner, 'police', $police];
+		$Game = new Game();
+		
+		$roomid = $Game -> createGame($setting, $password);
+
+		$this -> view -> assign ('roomid', $roomid);
+		$this -> view -> assign ('killer', $killer);
+		$this -> view -> assign ('police', $police);
+		$this -> view -> assign ('commoner', $commoner);
+
+		$this -> view -> show ('game/room');
 	}
 
 	/**
