@@ -51,8 +51,7 @@ class Weixin extends Orm
                                             if(!empty( $keyword ))
                                             {
                                                       $msgType = "text";
-                                                      // $contentStr = $this ->getMsgFromQueue($fromUsername, $toUsername, $msgType);
-                                                      $contentStr = 'this is new test';
+                                                      $contentStr = $this -> getMsgFromQueue ($fromUsername, $toUsername, $msgType);
                                                       $this->replyText($fromUsername, $toUsername, $contentStr);
                                             }
                                             else
@@ -113,7 +112,7 @@ class Weixin extends Orm
                         return $result;
             }
 
-            public function getMsgFromQueue ($fromUserName, $toUserName, $msgType='text')
+            private function getMsgFromQueue ($fromUserName, $toUserName, $msgType='text')
             {
                         // \Seaslog::debug("#debuginfo####".$fromUsername. '####'.$toUserName);
                         // $result = DB::select ('SELECT * FROM `msgQueue` WHERE  fromUserName = ? AND toUserName = ? AND isSent ORDER BY id DESC', [$fromUsername, $toUsername, $text]);
