@@ -51,7 +51,8 @@ class Weixin extends Orm
                                             if(!empty( $keyword ))
                                             {
                                                       $msgType = "text";
-                                                      $contentStr = $this ->getMsgFromQueue($fromUsername, $toUsername, $msgType);
+                                                      // $contentStr = $this ->getMsgFromQueue($fromUsername, $toUsername, $msgType);
+                                                      $contentStr = 'this is new test';
                                                       $this->replyText($fromUsername, $toUsername, $contentStr);
                                             }
                                             else
@@ -87,52 +88,6 @@ class Weixin extends Orm
             }
 
             /**
-             * 回复图文消息
-             * 
-             * */
-            public function replyImgText ($toUser, $fromUser, $textContent)
-            {
-                            $tpl = "<xml>
-                                            <ToUserName><![CDATA[toUser]]></ToUserName>
-                                            <FromUserName><![CDATA[fromUser]]></FromUserName>
-                                            <CreateTime>12345678</CreateTime>
-                                            <MsgType><![CDATA[news]]></MsgType>
-                                            <ArticleCount>2</ArticleCount>
-                                            <Articles>
-                                                            <item>
-                                                                        <Title><![CDATA[title1]]></Title> 
-                                                                        <Description><![CDATA[description1]]></Description>
-                                                                        <PicUrl><![CDATA[picurl]]></PicUrl>
-                                                                        <Url><![CDATA[url]]></Url>
-                                                            </item>
-                                                            <item>
-                                                                        <Title><![CDATA[title]]></Title>
-                                                                        <Description><![CDATA[description]]></Description>
-                                                                        <PicUrl><![CDATA[picurl]]></PicUrl>
-                                                                        <Url><![CDATA[url]]></Url>
-                                                            </item>
-                                            </Articles>
-                                        </xml>";
-                            $time = time ();
-            }
-
-            public function responseText ($toUser, $fromUser, $content)
-            {
-                        $type = 'text';
-                        $time = time ();
-                        $tpl = "<xml>
-                                                <ToUserName><![CDATA[%s]]></ToUserName>
-                                                <FromUserName><![CDATA[fromUser]]></FromUserName>
-                                                <CreateTime>12345678</CreateTime>
-                                                <MsgType><![CDATA[text]]></MsgType>
-                                                <Content><![CDATA[%s]]></Content>
-                                        </xml>";
-
-                        $this -> sent_post ();
-            }
-
-
-            /**
              *  将消息添加到队列中
              * 
              * 
@@ -160,9 +115,9 @@ class Weixin extends Orm
 
             public function getMsgFromQueue ($fromUserName, $toUserName, $msgType='text')
             {
-                        \Seaslog::debug("#debuginfo####".$fromUsername. '####'.$toUserName);
+                        // \Seaslog::debug("#debuginfo####".$fromUsername. '####'.$toUserName);
                         // $result = DB::select ('SELECT * FROM `msgQueue` WHERE  fromUserName = ? AND toUserName = ? AND isSent ORDER BY id DESC', [$fromUsername, $toUsername, $text]);
-                        \Seaslog::debug ('##msgQueue##'. json_encode($result));
+                        // \Seaslog::debug ('##msgQueue##'. json_encode($result));
                         // return $result[0]->content;
                         return 'this is a message queue test';
             }
