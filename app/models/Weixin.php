@@ -116,7 +116,7 @@ class Weixin extends Orm
             {
                         // \Seaslog::debug ('##fromusername' . $fromUserName);
                         // \Seaslog::debug ('##tousername' . $toUserName);
-                        $result = DB::select ('SELECT * FROM `msgQueue` WHERE  fromUserName = ? AND toUserName = ? AND isSent = ?ORDER BY id DESC', [$fromUsername, $toUsername, $msgType]);
+                        $result = DB::select ('SELECT * FROM `msgQueue` WHERE  fromUserName = ? AND toUserName = ? AND isSent = ? ORDER BY id DESC', [$fromUsername, $toUsername, $msgType]);
                         // \Seaslog::debug ('##msgQueue##'. json_encode($result));
                         // return $result[0]->content;
                         return 'this is a message queue test';
