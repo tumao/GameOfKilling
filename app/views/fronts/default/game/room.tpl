@@ -9,6 +9,11 @@
 	<div class='cell'><span>警察:</span><span style="margin-left: 20px;">{$police}</span></div>
 	<div class='cell'><span>平民:</span><span style="margin-left: 20px;">{$commoner}</span></div>
 </div>
+{if $password neq ''}
+<div class="roombody">
+	<span>房间密码：</span><span>{$password}</span>
+</div>
+{/if}
 <div class="footer">
 	<span>回复房间号可以查看房间配置信息</span>
 </div>

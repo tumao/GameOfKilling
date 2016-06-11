@@ -53,12 +53,22 @@ class IndexController extends BaseController
 		
 		$roomid = $Game -> createGame($setting, $password);
 
+		$this -> view -> assign ('password', $password);
 		$this -> view -> assign ('roomid', $roomid);
 		$this -> view -> assign ('killer', $killer);
 		$this -> view -> assign ('police', $police);
 		$this -> view -> assign ('commoner', $commoner);
 
 		$this -> view -> show ('game/room');
+	}
+
+	/**
+	 * 获取房间配置信息
+	 * 
+	 * */
+	public function getRoom ()
+	{
+		
 	}
 
 	/**
