@@ -50,8 +50,8 @@ class Weixin extends Orm
                                             $time = time();
                                             if(!empty( $keyword ))
                                             {
-                                                      $contentStr = $this ->getMsgFromQueue($fromUsername, $toUserName, 'text');
                                                       $msgType = "text";
+                                                      $contentStr = $this ->getMsgFromQueue($fromUsername, $toUsername, $msgType);
                                                       $this->replyText($fromUsername, $toUsername, $contentStr);
                                             }
                                             else
@@ -163,7 +163,7 @@ class Weixin extends Orm
                         \Seaslog::debug("#debuginfo####".$fromUsername. '####'.$toUserName);
                         $result = DB::select ('SELECT * FROM `msgQueue` WHERE  fromUserName = ? AND toUserName = ? AND isSent ORDER BY id DESC', [$fromUsername, $toUsername, $text]);
                         \Seaslog::debug ('##msgQueue##'. json_encode($result));
-                        // return $result[0]->content;
+                        return $result[0]->content;
             }
 
 }
