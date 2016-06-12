@@ -177,14 +177,12 @@ class Weixin extends Orm
                             {
                                         $base_url = $_SERVER['SERVER_NAME'];
                                         $uri = $_SERVER['REQUEST_URI'];
-                                        $redirecturl = urlencode ($base_url.$uri);  // 跳转地址
+                                        $redirecturl = urlencode ("http://".$base_url.$uri);  // 跳转地址
                             }
                             else
                             {
                                         $redirecturl = urlencode ($urlencode);
                             }
-
-                            echo $redirecturl;exit;
 
                         
                             if (isset($_SESSION['openid']))     // 如果用户已经首权过
