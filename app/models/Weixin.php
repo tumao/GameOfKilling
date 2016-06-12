@@ -125,7 +125,15 @@ class Weixin extends Orm
 
                         $this -> changQueueType ($result[0]->id);                                                // 更改已经发送的消息在队列中的状态
 
-                        return $result[0]->content;
+                        if (!empty($result))
+                        {
+                                $result = $result[0]->content;
+                        }
+                        else
+                        {
+                                $result = '';
+                        }
+                        return $result;
             }
 
 }
