@@ -59,15 +59,15 @@ class Weixin extends Orm
                                                                     \Seaslog::debug ('#result.....#' . $partResult);
                                                                     if ($partResult == -1)                  // 房间已满
                                                                     {
-                                                                            $this->replyText($fromUsername, $toUsername, "房间已满，请再创建房间");    
+                                                                            $this->replyText ($fromUsername, $toUsername, "房间已满，请再创建房间");    
                                                                     }
                                                                     elseif ($partResult == -2)          // 不存在该房间
                                                                     {
-                                                                            $this->replyText($fromUsername, $toUsername, "该房间不存在，请创建");
+                                                                            $this->replyText ($fromUsername, $toUsername, "该房间不存在，请创建");
                                                                     }
                                                                     else
                                                                     {
-                                                                            $this->replyText($fromUsername, $toUsername, "成功加入{$keyword}号房间，等待其他玩家加入");
+                                                                            $this->replyText ($fromUsername, $toUsername, "成功加入{$keyword}号房间，等待其他玩家加入");
                                                                     }
                                                                     
                                                       }

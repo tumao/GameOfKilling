@@ -56,11 +56,10 @@ class IndexController extends BaseController
 				$password = $_GET['password'];
 				 $this -> view -> assign('password', $_GET['password']);
 			}
-			$setting = ['killer' => $killer, 'commoner' => $commoner, 'police', $police];
+			$setting = ['killer' => $killer, 'commoner' => $commoner, 'police'=> $police];		// 游戏的人员配置
 			$Game = new Game();
 			
 			$roomid = $Game -> createGame($setting, $password, $userInfo->openid);
-
 
 			$this -> view -> assign ('password', $password);
 			$this -> view -> assign ('roomid', $roomid);
@@ -150,6 +149,6 @@ class IndexController extends BaseController
 	public function mq ()
 	{
 		$game = new Game ();
-		echo $game->partGame (5225, 7766);
+		echo $game->partGame (52225, 77266);
 	}
 }

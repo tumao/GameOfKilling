@@ -72,7 +72,12 @@ class Game extends Orm
       public function getRoomConf ($roomid)
       {
                 $room = DB::select ('SELECT * FROM `game` WHERE roomId = ?', [$roomid]);
-                return json_decode($room[0] ->setting);
+                $result = '';
+                if ($room)
+                {
+                             $result = json_decode($room[0] ->setting);
+                }
+                return $result;
       }
 
       /**
@@ -83,7 +88,11 @@ class Game extends Orm
       {
                 $sum = 0;
                 $setting = $this-> getRoomConf ($roomid);
-                $sum = $setting ->killer + $setting->commoner + $setting->police;
+               if ($setting)
+               {
+                        $sum = $setting ->killer + $setting->commoner + $setting->police;    
+               }
+                
                 return $sum;
       }
 
@@ -96,9 +105,9 @@ class Game extends Orm
                 \Seaslog::debug ('##roomid#'.$roomid);
                 \Seaslog::debug ('##openid#'.$openid);
               $redis = new \iRedis ();
-              $sumMeber = $this -> getSumMember ($roomid);
+              $sumMember = $this -> getSumMember ($roomid);
 
-              if (!$this -> isRoom ($roomid))
+              if ($sumMember == 0)                          // 房间不存在
               {
                         return -2;                                                                  // 房间不存在
               }
