@@ -93,9 +93,23 @@ class IndexController extends BaseController
 		$redirectUrl = urlencode('http://socketio.cn/getwxinfo');
 
 		$url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid={$appid}&redirect_uri={$redirectUrl}&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect";
-		\SeasLog::debug ('url##'.$url);
+
 		$this -> view -> assign ('url', $url);
 		$this -> view -> show ('game/roomlist');
+	}
+
+	/**
+	 *授权
+	 * 
+	 * @param String $[redirecturl] [<微信授权后跳转地址>]
+	 * */
+	public function authorize ()
+	{
+		$base_url = getConfig('common.base_url');
+
+		$Weixin = new Weixin ();
+		// $Weixin->authorize ($base_url);
+		$Weixin->getOpenid ();
 	}
 
 	/**

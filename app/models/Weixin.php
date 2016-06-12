@@ -53,7 +53,6 @@ class Weixin extends Orm
                                                       $msgType = "text";
                                                       $contentStr = $this -> getMsgFromQueue ($fromUsername, $toUsername, $msgType);
                                                       $this->replyText($fromUsername, $toUsername, $contentStr);
-                                                      $this->replyText($fromUsername, $toUsername, $contentStr);
                                             }
                                             else
                                             {
@@ -135,5 +134,66 @@ class Weixin extends Orm
                         }
                         return $result;
             }
+
+
+                /**
+                 *授权
+                 * 
+                 * @param String $[redirecturl] [<微信授权后跳转地址>]
+                 * */
+                public function authorize ($redirectUrl)
+                {
+                            $appid = getConfig ('wechat.APPID');        // appid
+                            $redirectUrl = urlencode ($redirectUrl);
+
+                            $url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid={$appid}&redirect_uri={$redirectUrl}&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect";       // 微信授权地址
+
+                            header ("Location:".$url);
+                }
+
+
+                /**
+                 *  获取用户的openid
+                 * 
+                 * */
+                public function getOpenid ($redirecturl = '')
+                {
+                            if (isset($_GET['code']))
+                            {
+                                        $code = trim ($_GET['code']);
+                                        $appid = getConfig('wechat.APPID');
+                                        $secret = getConfig('wechat.SECRET');
+                                        $url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid={$appid}&secret={$secret}&code={$code}&grant_type=authorization_code";
+                                        $result = $this -> sent_get ($url);
+                                        $result = json_decode ($result);
+
+                                        $_SESSION['openid'] = $result ->openid;
+
+                                        return $result->openid;
+
+                            }
+
+                            if ( !$redirecturl)
+                            {
+                                        $base_url = $_SERVER['SERVER_NAME'];
+                                        $uri = $_SERVER['REQUEST_URI'];
+                                        $redirecturl = urlencode ($base_url.$uri);  // 跳转地址
+                            }
+                            else
+                            {
+                                        $redirecturl = urlencode ($urlencode);
+                            }
+
+                        
+                            if (isset($_SESSION['openid']))     // 如果用户已经首权过
+                            {
+                                        return $_SESSION['openid'];
+                            }
+                            else
+                            {
+                                        $this -> authorize ($redirecturl);
+                            }
+                }
+
 
 }
