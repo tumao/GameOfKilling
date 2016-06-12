@@ -119,6 +119,8 @@ class Weixin extends Orm
             {
                         $result = DB::select ('SELECT * FROM `msgQueue` WHERE  fromUserName = ? AND toUserName = ? AND isSent = ? AND msgType = ? ORDER BY id DESC', [$fromUserName, $toUserName, 0, $msgType]);
 
+                        \Seaslog::debug ('#queue#'.json_encode($result));
+                        
                         if (!empty($result))
                         {
                                 $result = $result[0]->content;
