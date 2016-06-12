@@ -110,8 +110,8 @@ class IndexController extends BaseController
 		$Weixin = new Weixin ();
 		// $Weixin->authorize ($base_url);
 		$openid = $Weixin->getOpenid ();
-		echo $openid;
-		$userinfo = $Weixin -> getUserInfo($openid);
+		$token = $this -> get_token ();
+		$userinfo = $Weixin -> getUserInfo($token, $openid);
 		var_dump( $userinfo);
 	}
 
