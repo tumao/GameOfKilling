@@ -41,6 +41,7 @@ Route::get('entering', 'App\Controllers\Front\Game\IndexController@entering');
 Route::get ('roomlist', 'App\Controllers\Front\Game\IndexController@roomList');
 Route::get ('getwxinfo', 'App\Controllers\Front\Game\IndexController@getWxUserInfo');	// 获取code
 Route::get ('room', 'App\Controllers\Front\Game\IndexController@room');			// 房间列表
+Route::get('mq', 'App\Controllers\Front\Game\IndexController@mq');
 
 Route::get('informs', 'App\Controllers\Front\Main\MainController@inform');			// 通知
 Route::get('abstracts', 'App\Controllers\Front\Main\MainController@abstracts');		// 简介

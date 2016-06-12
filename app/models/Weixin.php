@@ -112,14 +112,10 @@ class Weixin extends Orm
                         return $result;
             }
 
-            private function getMsgFromQueue ($fromUserName, $toUserName, $msgType='text')
+            public function getMsgFromQueue ($fromUserName, $toUserName, $msgType='text')
             {
-                        // \Seaslog::debug ('##fromusername' . $fromUserName);
-                        // \Seaslog::debug ('##tousername' . $toUserName);
-                        $result = DB::select ('SELECT * FROM `msgQueue` WHERE  fromUserName = ? AND toUserName = ? AND isSent = ? ORDER BY id DESC', [$fromUsername, $toUsername, $msgType]);
-                        // \Seaslog::debug ('##msgQueue##'. json_encode($result));
-                        // return $result[0]->content;
-                        return 'this is a message queue test';
+                        $result = DB::select ('SELECT * FROM `msgQueue` WHERE  fromUserName = ? AND toUserName = ? AND isSent = ? AND msgType = ? ORDER BY id DESC', [$fromUserName, $toUserName, 0, $msgType]);
+                        return $result[0]->content;
             }
 
 }

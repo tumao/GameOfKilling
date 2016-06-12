@@ -68,7 +68,7 @@ class IndexController extends BaseController
 	 * */
 	public function getRoom ()
 	{
-		
+
 	}
 
 	/**
@@ -142,5 +142,11 @@ class IndexController extends BaseController
 		$url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token={$access_token}&openid={$openid}";
 		$result = $this -> sent_get ($url);
 		return $result;
+	}
+
+	public function mq ()
+	{
+		$weixin = new Weixin ();
+		$weixin -> getMsgFromQueue("oMe5vtx7hAFDE9Q88xUEbpg7lFl4", "gh_e39949e7ee04");
 	}
 }
