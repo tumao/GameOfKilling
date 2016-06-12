@@ -184,7 +184,7 @@ class Weixin extends Orm
                                         $redirecturl = urlencode ($urlencode);
                             }
 
-                            echo $$redirecturl;exit;
+                            echo $redirecturl;exit;
 
                         
                             if (isset($_SESSION['openid']))     // 如果用户已经首权过
