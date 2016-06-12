@@ -55,7 +55,7 @@ class Weixin extends Orm
                                                       if (is_numeric($keyword))
                                                       {             
                                                                     $Game = new Game ();
-                                                                    $partResult = $Game -> partGame ($keyword, $fromUsername);                     // 加入到游戏中
+                                                                    $partResult = $Game ->partGame ($keyword, $fromUsername);                     // 加入到游戏中
                                                                     \Seaslog::debug ('#result.....#' . $partResult);
                                                                     if ($partResult == -1)                  // 房间已满
                                                                     {

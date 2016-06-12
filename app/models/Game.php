@@ -53,6 +53,7 @@ class Game extends Orm
       {
                 $result = DB::select ("SELECT * FROM `game` WHERE roomId = ?", [$roomid]);
 
+                \Seaslog::debug ('##isroom##'. json_encode($result));
                 if (!empty($result))        //存在房间
                 {
                             return 1;
@@ -92,6 +93,8 @@ class Game extends Orm
        * */
       public function partGame ($roomid, $openid)
       {
+                \Seaslog::debug ('##roomid#'.$roomid);
+                \Seaslog::debug ('##openid#'.$openid);
               $redis = new \iRedis ();
               $sumMeber = $this -> getSumMember ($roomid);
 
