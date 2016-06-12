@@ -121,7 +121,7 @@ class Weixin extends Orm
 
                         \Seaslog::debug ('#queue#'.json_encode($result));
 
-                        if ($result)
+                        if (isset($result))
                         {
                                 $result = $result[0]->content;
                                 $this -> changQueueType ($result[0]->id);                                                // 更改已经发送的消息在队列中的状态
