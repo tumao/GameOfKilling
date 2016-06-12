@@ -118,7 +118,9 @@ class Game extends Orm
                                     return -1;                                                            //  
                             }
               }
+              \Seaslog::debug ('debuginfo###11111');
               $redis ->sadd ($roomid, [$openid]);                              // 加入游戏
+              \Seaslog::debug ('debuginfo###22222');
               return 1;
       }
 }
