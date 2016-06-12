@@ -130,15 +130,14 @@ class iRedis
             return  self::$redis -> smembers ($key);
   }
 
-
 /**
  * 查看是否保存了对应的key
  * 
  * */
-  public static function sismember ($key)
+  public static function sismember ($key, $val)
   { 
             self::init ();
-            return  self::$redis -> sismember ($key);
+            return  self::$redis -> sismember ($key, $val);
   }
 
   /**

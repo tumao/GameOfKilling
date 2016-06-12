@@ -12,18 +12,6 @@ var Opening = (function ($){
 		var commoner = document.getElementById('commoner').value;
 		var password = document.getElementById('password').value;
 
-		// $.ajax({
-		// 	url 	:'/opening',
-		// 	data 	: {killer:killer, police:police, commoner:commoner, password:password},
-		// 	type 	: 'GET',
-		// 	dataType : 'json',
-		// 	success : function (rpUrl){
-		// 		// if (rpUrl){
-		// 		// 	window.location.href = rpUrl;
-		// 		// 	console.log (rpUrl);
-		// 		// }
-		// 	}
-		// });
 		window.location.href = "/room?killer=" + killer + "&police=" + police + "&commoner=" + commoner + "&password=" + password;
 	};
 	return this;

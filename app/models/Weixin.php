@@ -3,6 +3,7 @@ namespace App\Models;
 
 use Core\Orms\Orm;
 use Illuminate\Database\Capsule\Manager as DB;
+use App\Models\Game;
 
 class Weixin extends Orm
 {
@@ -51,8 +52,28 @@ class Weixin extends Orm
                                             if(!empty( $keyword ))
                                             {
                                                       $msgType = "text";
-                                                      $contentStr = $this -> getMsgFromQueue ($fromUsername, $toUsername, $msgType);
-                                                      $this->replyText($fromUsername, $toUsername, $contentStr);
+                                                      if (is_numeric($keyword))
+                                                      {             
+                                                                    $Game = new Game ();
+                                                                    $partResult = $Game -> partGame ($keyword, $fromUsername);                     // 加入到游戏中
+                                                                    if ($partResult == -1)                  // 房间已满
+                                                                    {
+                                                                            $this->replyText($fromUsername, $toUsername, "房间已满，请再创建房间");    
+                                                                    }
+                                                                    elseif ($partResult == -2)          // 不存在该房间
+                                                                    {
+                                                                            $this->replyText($fromUsername, $toUsername, "该房间不存在，请创建");
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                            $this->replyText($fromUsername, $toUsername, "成功加入{$keyword}号房间，等待其他玩家加入");
+                                                                    }
+                                                                    
+                                                      }
+                                                      else
+                                                      {
+                                                                    $contentStr = $this -> getMsgFromQueue ($fromUsername, $toUsername, $msgType);
+                                                      }
                                             }
                                             else
                                             {
@@ -135,7 +156,6 @@ class Weixin extends Orm
                         return $result;
             }
 
-
                 /**
                  *授权
                  * 
@@ -150,7 +170,6 @@ class Weixin extends Orm
 
                             header ("Location:".$url);
                 }
-
 
                 /**
                  *  获取用户的openid

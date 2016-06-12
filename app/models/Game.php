@@ -43,4 +43,72 @@ class Game extends Orm
                                          [$roomId, $setting, $password, $openid]);
                 return $roomId;
       }
+
+      /**
+       *    查看是否存在该房间
+       * 
+       *     @param string $roomid 房间号
+       * */
+      public function isRoom ($roomid)
+      {
+                $result = DB::select ("SELECT * FROM `game` WHERE roomId = ?", [$roomid]);
+
+                if (!empty($result))        //存在房间
+                {
+                            return 1;
+                }
+                else                                    // 不存在房间
+                {
+                            return -1;
+                }
+      }
+
+      /**
+       *    房间的人员配置信息
+       * 
+       * 
+       * */
+      public function getRoomConf ($roomid)
+      {
+                $room = DB::select ('SELECT * FROM `game` WHERE roomId = ?', [$roomid]);
+                return json_decode($room[0] ->setting);
+      }
+
+      /**
+       *   房间的总人数
+       * 
+       * */
+      public function getSumMember ($roomid)
+      {
+                $sum = 0;
+                $setting = $this-> getRoomConf ($roomid);
+                $sum = $setting ->killer + $setting->commoner + $setting->police;
+                return $sum;
+      }
+
+      /**
+       *  加入游戏
+       * 
+       * */
+      public function partGame ($roomid, $openid)
+      {
+              $redis = new \iRedis ();
+              $sumMeber = $this -> getSumMember ($roomid);
+
+              if (!$this -> isRoom ($roomid))
+              {
+                        return -2;                                                                  // 房间不存在
+              }
+
+              if ($users = $redis->smembers($roomid))
+              {
+                        $memberCount = count ($users);
+                        if ($memberCount >= $sumMeber)                      // 查看已经加入到游戏中的人是否超过游戏配置
+                        {
+                                return -1;                                                            //  
+                        }
+              }
+              $redis ->sadd ($roomid, [$openid]);                              // 加入游戏
+              return 1;
+      }
 }

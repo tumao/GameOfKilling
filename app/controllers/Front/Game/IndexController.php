@@ -149,7 +149,7 @@ class IndexController extends BaseController
 
 	public function mq ()
 	{
-		$weixin = new Weixin ();
-		$weixin -> getMsgFromQueue("oMe5vtx7hAFDE9Q88xUEbpg7lFl4", "gh_e39949e7ee04");
+		$game = new Game ();
+		echo $game->partGame (5225, 7766);
 	}
 }
