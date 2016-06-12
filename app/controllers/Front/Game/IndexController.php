@@ -149,6 +149,6 @@ class IndexController extends BaseController
 	public function mq ()
 	{
 		$game = new Game ();
-		echo $game->partGame (52225, 77266);
+		echo $game->partGame (5010, 77266);
 	}
 }

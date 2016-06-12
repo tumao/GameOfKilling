@@ -114,11 +114,11 @@ class Game extends Orm
 
               if ($users = $redis->smembers($roomid))
               {
-                        $memberCount = count ($users);
-                        if ($memberCount >= $sumMeber)                      // 查看已经加入到游戏中的人是否超过游戏配置
-                        {
-                                return -1;                                                            //  
-                        }
+                            $memberCount = count ($users);
+                            if ($memberCount >= $sumMeber)                      // 查看已经加入到游戏中的人是否超过游戏配置
+                            {
+                                    return -1;                                                            //  
+                            }
               }
               $redis ->sadd ($roomid, [$openid]);                              // 加入游戏
               return 1;
