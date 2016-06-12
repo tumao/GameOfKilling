@@ -109,7 +109,8 @@ class IndexController extends BaseController
 
 		$Weixin = new Weixin ();
 		// $Weixin->authorize ($base_url);
-		$Weixin->getOpenid ();
+		$openid = $Weixin->getOpenid ();
+		echo $openid;
 	}
 
 	/**
