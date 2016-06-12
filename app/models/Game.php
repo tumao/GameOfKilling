@@ -102,8 +102,6 @@ class Game extends Orm
        * */
       public function partGame ($roomid, $openid)
       {
-                \Seaslog::debug ('##roomid#'.$roomid);
-                \Seaslog::debug ('##openid#'.$openid);
               $redis = new \iRedis ();
               $sumMember = $this -> getSumMember ($roomid);
 
@@ -115,7 +113,7 @@ class Game extends Orm
               if ($users = $redis->smembers($roomid))
               {
                             $memberCount = count ($users);
-                            if ($memberCount >= $sumMeber)                      // 查看已经加入到游戏中的人是否超过游戏配置
+                            if ($memberCount >= $sumMember)                      // 查看已经加入到游戏中的人是否超过游戏配置
                             {
                                     return -1;                                                            //  
                             }
