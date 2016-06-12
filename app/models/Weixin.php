@@ -106,15 +106,23 @@ class Weixin extends Orm
              *  改变消息队列的状态
              * 
              * */
-            public function changQueueType ($id)
+            private function changQueueType ($id)
             {
                         $result = DB::update ("UPDATE `msgQueue` SET `isSent` = ? WHERE id = ?", [1, $id]);
                         return $result;
             }
 
+            /**
+             *  从消息队列中取一条消息
+             * 
+             * 
+             * */
             public function getMsgFromQueue ($fromUserName, $toUserName, $msgType='text')
             {
                         $result = DB::select ('SELECT * FROM `msgQueue` WHERE  fromUserName = ? AND toUserName = ? AND isSent = ? AND msgType = ? ORDER BY id DESC', [$fromUserName, $toUserName, 0, $msgType]);
+
+                        $this -> changQueueType ($result[0]->id);                                                // 更改已经发送的消息在队列中的状态
+
                         return $result[0]->content;
             }
 
