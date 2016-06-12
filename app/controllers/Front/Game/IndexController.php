@@ -37,38 +37,39 @@ class IndexController extends BaseController
 	 * */
 	public function room()
 	{
-		$this -> view -> addCss ('front/css/room.css');
-		$commoner = $_GET['commoner'];
-		$killer = $_GET['killer'];
-		$police = $_GET['police'];
-		$password = '';
+		$Weixin = new Weixin ();
+		$openid  = $Weixin ->getOpenid ();
+		$token = $this -> get_token ();
+		$userInfo = $Weixin->getUserInfo ($token, $openid);
+		$userInfo = json_decode ($userInfo);
 
-		if (isset($_GET['password']))
+		if (isset($_GET['commoner']))
 		{
-			$password = $_GET['password'];
-			 $this -> view -> assign('password', $_GET['password']);
+			$this -> view -> addCss ('front/css/room.css');
+			$commoner = $_GET['commoner'];
+			$killer = $_GET['killer'];
+			$police = $_GET['police'];
+			$password = '';
+
+			if (isset($_GET['password']))
+			{
+				$password = $_GET['password'];
+				 $this -> view -> assign('password', $_GET['password']);
+			}
+			$setting = ['killer' => $killer, 'commoner' => $commoner, 'police', $police];
+			$Game = new Game();
+			
+			$roomid = $Game -> createGame($setting, $password, $userInfo->openid);
+
+
+			$this -> view -> assign ('password', $password);
+			$this -> view -> assign ('roomid', $roomid);
+			$this -> view -> assign ('killer', $killer);
+			$this -> view -> assign ('police', $police);
+			$this -> view -> assign ('commoner', $commoner);
+
+			$this -> view -> show ('game/room');
 		}
-		$setting = ['killer' => $killer, 'commoner' => $commoner, 'police', $police];
-		$Game = new Game();
-		
-		$roomid = $Game -> createGame($setting, $password);
-
-		$this -> view -> assign ('password', $password);
-		$this -> view -> assign ('roomid', $roomid);
-		$this -> view -> assign ('killer', $killer);
-		$this -> view -> assign ('police', $police);
-		$this -> view -> assign ('commoner', $commoner);
-
-		$this -> view -> show ('game/room');
-	}
-
-	/**
-	 * 获取房间配置信息
-	 * 
-	 * */
-	public function getRoom ()
-	{
-
 	}
 
 	/**
@@ -105,14 +106,11 @@ class IndexController extends BaseController
 	 * */
 	public function authorize ()
 	{
-		$base_url = getConfig('common.base_url');
-
 		$Weixin = new Weixin ();
-		// $Weixin->authorize ($base_url);
 		$openid = $Weixin->getOpenid ();
 		$token = $this -> get_token ();
 		$userinfo = $Weixin -> getUserInfo($token, $openid);
-		var_dump( $userinfo);
+
 	}
 
 	/**

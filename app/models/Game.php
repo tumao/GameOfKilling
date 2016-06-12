@@ -33,14 +33,14 @@ class Game extends Orm
        * @param string  $password 房间密码
        * @return string 房间号
        * */
-      public function createGame ($setting, $password = '')
+      public function createGame ($setting, $password = '', $openid)
       {
                 $roomId = $this -> getIncRandRoom ();             // 获取递增不连续的房间号
                 $setting = json_encode ($setting);
                 DB::insert('INSERT INTO 
-                                          `game` (roomid, setting, password)
+                                          `game` (roomid, setting, password, openid)
                                           VALUES (?, ?, ?) ',
-                                         [$roomId, $setting, $password]);
+                                         [$roomId, $setting, $password, $openid]);
                 return $roomId;
       }
 }
