@@ -147,7 +147,6 @@ class Weixin extends Orm
                             $redirectUrl = urlencode ($redirectUrl);
 
                             $url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid={$appid}&redirect_uri={$redirectUrl}&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect";       // 微信授权地址
-                            exit ($url);
 
                             header ("Location:".$url);
                 }
@@ -178,14 +177,9 @@ class Weixin extends Orm
                             {
                                         $base_url = $_SERVER['SERVER_NAME'];
                                         $uri = $_SERVER['REQUEST_URI'];
-                                        $redirecturl = urlencode ("http://".$base_url.$uri);  // 跳转地址
-                            }
-                            else
-                            {
-                                        $redirecturl = urlencode ($urlencode);
+                                        $redirecturl = "http://".$base_url.$uri;
                             }
 
-                        
                             if (isset($_SESSION['openid']))     // 如果用户已经首权过
                             {
                                         return $_SESSION['openid'];
