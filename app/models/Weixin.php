@@ -53,6 +53,7 @@ class Weixin extends Orm
                                                       $msgType = "text";
                                                       $contentStr = $this -> getMsgFromQueue ($fromUsername, $toUsername, $msgType);
                                                       $this->replyText($fromUsername, $toUsername, $contentStr);
+                                                      $this->replyText($fromUsername, $toUsername, $contentStr);
                                             }
                                             else
                                             {
