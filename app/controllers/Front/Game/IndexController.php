@@ -111,6 +111,8 @@ class IndexController extends BaseController
 		// $Weixin->authorize ($base_url);
 		$openid = $Weixin->getOpenid ();
 		echo $openid;
+		$userinfo = $Weixin -> getUserInfo($openid);
+		var_dump( $userinfo);
 	}
 
 	/**
@@ -145,18 +147,6 @@ class IndexController extends BaseController
 			$_SESSION['nickname'] = $userinfo->nickname;
 			$_SESSION['headimgurl'] = $userinfo->headimgurl;
 		}
-	}
-
-	/**
-	 * 获取用户信息
-	 * 
-	 * */
-	private function getUserInfo ($openid)
-	{
-		$access_token = $this -> get_token();
-		$url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token={$access_token}&openid={$openid}";
-		$result = $this -> sent_get ($url);
-		return $result;
 	}
 
 	public function mq ()

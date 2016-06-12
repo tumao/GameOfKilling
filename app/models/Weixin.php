@@ -190,5 +190,17 @@ class Weixin extends Orm
                             }
                 }
 
+                    /**
+                     * 获取用户信息
+                     * 
+                     * */
+                    private function getUserInfo ($openid)
+                    {
+                        $access_token = $this -> get_token();
+                        $url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token={$access_token}&openid={$openid}";
+                        $result = $this -> sent_get ($url);
+                        return $result;
+                    }
+
 
 }
