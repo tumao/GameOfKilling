@@ -52,6 +52,10 @@ class Weixin extends Orm
                                             {
                                                       $msgType = "text";
                                                       $contentStr = $this -> getMsgFromQueue ($fromUsername, $toUsername, $msgType);
+                                                      if (!$contentStr)
+                                                      {
+                                                                $contentStr = "房间过期，请重新创建房间.";
+                                                      }
                                                       $this->replyText($fromUsername, $toUsername, $contentStr);
                                             }
                                             else
@@ -89,7 +93,6 @@ class Weixin extends Orm
             /**
              *  将消息添加到队列中
              * 
-             * 
              * */
             public function addMsgToQueue ($fromUserName, $toUserName, $msgType, $content)
             {
@@ -114,7 +117,6 @@ class Weixin extends Orm
 
             /**
              *  从消息队列中取一条消息
-             * 
              * 
              * */
             public function getMsgFromQueue ($fromUserName, $toUserName, $msgType='text')
