@@ -48,6 +48,7 @@ class Weixin extends Orm
                                             $fromUsername = $postObj->FromUserName;
                                             $toUsername = $postObj->ToUserName;
                                             $keyword = trim($postObj->Content);
+                                            $openurl = getConfig ('common.base_url').'opening';         // 创建新的房间的地址
                                             $time = time();
                                             if(!empty( $keyword ))
                                             {
@@ -56,14 +57,14 @@ class Weixin extends Orm
                                                       {             
                                                                     $Game = new Game ();
                                                                     $partResult = $Game ->partGame ($keyword, $fromUsername);                     // 加入到游戏中
-                                                                    \Seaslog::debug ('#result.....#' . $partResult);
+
                                                                     if ($partResult == -1)                  // 房间已满
                                                                     {
-                                                                            $this->replyText ($fromUsername, $toUsername, "房间已满，请再创建房间");    
+                                                                            $this->replyText ($fromUsername, $toUsername, "房间已满，请再创建房间 {$openurl}");    
                                                                     }
                                                                     elseif ($partResult == -2)          // 不存在该房间
                                                                     {
-                                                                            $this->replyText ($fromUsername, $toUsername, "该房间不存在，请创建");
+                                                                            $this->replyText ($fromUsername, $toUsername, "该房间不存在，请创建 {$openurl}");
                                                                     }
                                                                     else
                                                                     {
