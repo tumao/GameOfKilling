@@ -39,7 +39,7 @@ class Game extends Orm
                 $setting = json_encode ($setting);
                 DB::insert('INSERT INTO 
                                           `game` (roomid, setting, password, openid)
-                                          VALUES (?, ?, ?) ',
+                                          VALUES (?, ?, ?, ?) ',
                                          [$roomId, $setting, $password, $openid]);
                 return $roomId;
       }
