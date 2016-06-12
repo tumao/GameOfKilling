@@ -117,14 +117,16 @@ class Weixin extends Orm
              * */
             public function getMsgFromQueue ($fromUserName, $toUserName, $msgType='text')
             {
-                        $result = DB::select ('SELECT * FROM `msgQueue` WHERE  fromUserName = ? AND toUserName = ? AND isSent = ? AND msgType = ? ORDER BY id DESC', [$fromUserName, $toUserName, 0, $msgType]);
+                        $data = DB::select ('SELECT * FROM `msgQueue` WHERE  fromUserName = ? AND toUserName = ? AND isSent = ? AND msgType = ? ORDER BY id DESC', [$fromUserName, $toUserName, 0, $msgType]);
 
-                        \Seaslog::debug ('#queue#'.json_encode($result));
+                        \Seaslog::debug ('#queue#'.json_encode($data));
 
-                        if (isset($result))
+                        $result = '';
+
+                        if (isset($data))
                         {
-                                $result = $result[0]->content;
-                                $this -> changQueueType ($result[0]->id);                                                // 更改已经发送的消息在队列中的状态
+                                $result = $data[0]->content;
+                                $this -> changQueueType ($data[0]->id);                                                // 更改已经发送的消息在队列中的状态
                         }
                         else
                         {
