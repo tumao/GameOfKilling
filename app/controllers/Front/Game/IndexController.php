@@ -63,7 +63,8 @@ class IndexController extends BaseController
 			$setting = ['killer' => $killer, 'commoner' => $commoner, 'police'=> $police];		// 游戏的人员配置
 			$Game = new Game();
 			
-			$roomid = $Game -> createGame($setting, $password, $userInfo->openid);
+			// $roomid = $Game -> createGame($setting, $password, $userInfo->openid);
+			$roomid = $Game -> createGame($setting, $password, '123456');
 
 			$this -> view -> assign ('password', $password);
 			$this -> view -> assign ('roomid', $roomid);
