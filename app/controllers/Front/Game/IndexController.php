@@ -41,6 +41,7 @@ class IndexController extends BaseController
 		$openid  = $Weixin ->getOpenid ();
 		$token = $this -> get_token ();
 		$userInfo = $Weixin->getUserInfo ($token, $openid);
+		\Seaslog::debug ('###userinfo##'.$userInfo);
 		$userInfo = json_decode ($userInfo);
 
 		if (isset($_GET['commoner']))
