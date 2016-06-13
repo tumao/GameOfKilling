@@ -38,10 +38,13 @@ class IndexController extends BaseController
 	public function room()
 	{
 		$Weixin = new Weixin ();
+		\Seaslog::debug ('###test###');
 		$openid  = $Weixin ->getOpenid ();
+		\Seaslog::debug ('###openid###'. $openid);
+
 		$token = $this -> get_token ();
 		$userInfo = $Weixin->getUserInfo ($token, $openid);
-		\Seaslog::debug ('###userinfo##'.$userInfo);
+
 		$userInfo = json_decode ($userInfo);
 
 		if (isset($_GET['commoner']))
