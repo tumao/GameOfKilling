@@ -189,7 +189,7 @@ class Weixin extends Orm
                                         $result = json_decode ($result);
 
                                         $_SESSION['openid'] = $result ->openid;
-
+                                        \Seaslog::debug ('###openid###'. $result->openid);
                                         return $result->openid;
 
                             }
@@ -217,7 +217,6 @@ class Weixin extends Orm
                  * */
                 public function getUserInfo ($access_token ,$openid)
                 {
-                            \Seaslog::debug ('###openid###'. $openid);
                             $url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token={$access_token}&openid={$openid}";
                             $result = $this -> sent_get ($url);
                             return $result;
