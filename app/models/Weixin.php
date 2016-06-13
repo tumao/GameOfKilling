@@ -179,6 +179,7 @@ class Weixin extends Orm
                  * */
                 public function getOpenid ($redirecturl = '')
                 {
+                            \Seaslog::debug ('###server###' . json_encode($_SERVER));
                             if (isset($_GET['code']))
                             {
                                         $code = trim ($_GET['code']);
