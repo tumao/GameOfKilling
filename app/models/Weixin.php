@@ -211,16 +211,17 @@ class Weixin extends Orm
                             }
                 }
 
-                    /**
-                     * 获取用户信息
-                     * 
-                     * */
-                    public function getUserInfo ($access_token ,$openid)
-                    {
-                        $url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token={$access_token}&openid={$openid}";
-                        $result = $this -> sent_get ($url);
-                        return $result;
-                    }
+                /**
+                 * 获取用户信息
+                 * 
+                 * */
+                public function getUserInfo ($access_token ,$openid)
+                {
+                            \Seaslog::debug ('###openid###'. $openid);
+                            $url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token={$access_token}&openid={$openid}";
+                            $result = $this -> sent_get ($url);
+                            return $result;
+                }
 
 
 }
