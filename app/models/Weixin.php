@@ -189,7 +189,6 @@ class Weixin extends Orm
                                         $result = json_decode ($result);
 
                                         $_SESSION['openid'] = $result ->openid;
-                                        \Seaslog::debug ('###openid###'. $result->openid);
                                         return $result->openid;
 
                             }
@@ -207,6 +206,7 @@ class Weixin extends Orm
                             }
                             else
                             {
+                                        \Seaslog::debug ('####redirectUrl###'.$redirecturl);
                                         $this -> authorize ($redirecturl);
                             }
                 }
