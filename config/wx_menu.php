@@ -28,7 +28,7 @@ return [
 				[
 					'type'	=> 'view',
 					'name'	=> '战绩',
-					'url'	=> 'http://www.baidu.com'
+					'url'	=> getConfig('common.base_url') . 'score'			// 战绩
 				]
 			],
 		],[

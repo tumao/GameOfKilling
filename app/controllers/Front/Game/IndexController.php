@@ -156,4 +156,10 @@ class IndexController extends BaseController
 		$game = new Game ();
 		echo $game->partGame (5010, 77266);
 	}
+
+	public function score ()
+	{
+		$this -> view ->addCss ('front/css/game.css');
+		$this -> view -> show ('game/scoreList');
+	}
 }

@@ -43,6 +43,7 @@ Route::get ('getwxinfo', 'App\Controllers\Front\Game\IndexController@getWxUserIn
 Route::get ('room', 'App\Controllers\Front\Game\IndexController@room');			// 房间列表
 Route::get('auth', 'App\Controllers\Front\Game\IndexController@authorize');
 Route::get('mq', 'App\Controllers\Front\Game\IndexController@mq');
+Route::get('score', 'App\Controllers\Front\Game\IndexController@score');			// 战绩
 
 Route::get('informs', 'App\Controllers\Front\Main\MainController@inform');			// 通知
 Route::get('abstracts', 'App\Controllers\Front\Main\MainController@abstracts');		// 简介
