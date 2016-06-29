@@ -14,5 +14,14 @@ var Opening = (function ($){
 
 		window.location.href = "/room?killer=" + killer + "&police=" + police + "&commoner=" + commoner + "&password=" + password;
 	};
+	this.setrole = function (){
+		$.ajax ({
+			url : '/setRole',
+			type :'POST',
+			success : function (rp){
+				alert ('新一轮游戏的角色分配成功,请游戏成员查看！');
+			}
+		});
+	};
 	return this;
 })(jQuery);

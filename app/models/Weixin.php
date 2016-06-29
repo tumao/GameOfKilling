@@ -66,6 +66,12 @@ class Weixin extends Orm
                                                                     {
                                                                             $this->replyText ($fromUsername, $toUsername, "该房间不存在，请创建 {$openurl}");
                                                                     }
+                                                                    elseif ($partResult == 111) // 查看当前角色
+                                                                    {
+                                                                              $game = new Game();
+                                                                              $roleName = $game -> getCurrentRole ();
+                                                                             $this->replyText ($fromUsername, $toUsername, "您当前的角色是{$roleName}");
+                                                                    }
                                                                     else
                                                                     {
                                                                             $this->replyText ($fromUsername, $toUsername, "成功加入{$keyword}号房间，等待其他玩家加入");

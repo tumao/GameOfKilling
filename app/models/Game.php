@@ -123,4 +123,24 @@ class Game extends Orm
               \Seaslog::debug ('debuginfo###22222');
               return 1;
       }
+
+        // 获取当前角色
+      public function getCurrentRole ()
+      {
+           $redis = new \iRedis ();
+           $roleid = $redis->get ('role',);
+           if ($roleid == '1')
+           {
+                  return  '平民';
+           }
+           elseif ($roleid == '2')
+           {
+                return '警察';
+           }
+           elseif ($roleid == '2')
+           {
+                return '杀手';
+           }
+
+      }
 }

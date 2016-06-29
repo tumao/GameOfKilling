@@ -44,6 +44,10 @@ Route::get ('room', 'App\Controllers\Front\Game\IndexController@room');			// 房
 Route::get('auth', 'App\Controllers\Front\Game\IndexController@authorize');
 Route::get('mq', 'App\Controllers\Front\Game\IndexController@mq');
 Route::get('score', 'App\Controllers\Front\Game\IndexController@score');			// 战绩
+Route::get('getRole', 'App\Controllers\Front\Game\IndexController@getCurrentRole');			// 战绩
+Route::get('setRole', 'App\Controllers\Front\Game\IndexController@setRole');			// 战绩
+Route::post('setRole', 'App\Controllers\Front\Game\IndexController@setRole');			// 战绩
+
 
 Route::get('informs', 'App\Controllers\Front\Main\MainController@inform');			// 通知
 Route::get('abstracts', 'App\Controllers\Front\Main\MainController@abstracts');		// 简介

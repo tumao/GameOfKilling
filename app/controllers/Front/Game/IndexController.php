@@ -157,4 +157,26 @@ class IndexController extends BaseController
 		$this -> view ->addCss ('front/css/game.css');
 		$this -> view -> show ('game/scoreList');
 	}
+
+
+	
+
+	// 当前局的结果，是胜利还是失败
+	public function setRole ()
+	{
+		$method = $_SERVER['REQUEST_METHOD'];
+		$this -> view ->addJs ('front/js/game.js');
+		if ($method == 'GET')
+		{
+			$this -> view -> show ('game/setRole');
+		}
+		else
+		{
+			$rand  = rand (1,3);
+			$redis = new \iRedis ();
+			$redis->set ('role', $rand);
+			echo $rand;
+		}
+	}
+
 }
