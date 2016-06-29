@@ -15,5 +15,5 @@
 </div>
 {/if}
 <div class="footer">
-	<span>回复房间号可以查看房间配置信息</span>
+	<span>回复房间号可以加入房间进行游戏</span>
 </div>

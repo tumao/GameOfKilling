@@ -70,7 +70,6 @@ class Weixin extends Orm
                                                                     {
                                                                             $this->replyText ($fromUsername, $toUsername, "成功加入{$keyword}号房间，等待其他玩家加入");
                                                                     }
-                                                                    
                                                       }
                                                       else
                                                       {

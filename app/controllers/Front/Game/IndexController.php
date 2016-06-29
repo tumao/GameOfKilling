@@ -37,18 +37,14 @@ class IndexController extends BaseController
 	 * */
 	public function room()
 	{
-		$Weixin = new Weixin ();
-		\Seaslog::debug ('###test###');
-		$openid  = $Weixin ->getOpenid ();
-		\Seaslog::debug ('###openid###'. $openid);
+		// $Weixin = new Weixin ();
+		// \Seaslog::debug ('###test###');
+		// $openid  = $Weixin ->getOpenid ();
+		// \Seaslog::debug ('###openid###'. $openid);
 
-		$token = $this -> get_token ();
-		$userInfo = $Weixin->getUserInfo ($token, $openid);
+		// $token = $this -> get_token ();
+		// $userInfo = $Weixin->getUserInfo ($token, $openid);
 
-		$userInfo = json_decode ($userInfo);
-
-		if (isset($_GET['commoner']))
-		{
 			$this -> view -> addCss ('front/css/room.css');
 			$commoner = $_GET['commoner'];
 			$killer = $_GET['killer'];
@@ -63,7 +59,7 @@ class IndexController extends BaseController
 			$setting = ['killer' => $killer, 'commoner' => $commoner, 'police'=> $police];		// 游戏的人员配置
 			$Game = new Game();
 			
-			$roomid = $Game -> createGame($setting, $password, $userInfo->openid);
+			$roomid = $Game -> createGame($setting, $password, '11111');
 			// $roomid = $Game -> createGame($setting, $password, '123456');
 
 			$this -> view -> assign ('password', $password);
@@ -73,7 +69,6 @@ class IndexController extends BaseController
 			$this -> view -> assign ('commoner', $commoner);
 
 			$this -> view -> show ('game/room');
-		}
 	}
 
 	/**
