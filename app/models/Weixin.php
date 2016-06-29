@@ -57,20 +57,19 @@ class Weixin extends Orm
                                                       {             
                                                                     $Game = new Game ();
                                                                     $partResult = $Game ->partGame ($keyword, $fromUsername);                     // 加入到游戏中
-
-                                                                    if ($partResult == -1)                  // 房间已满
+                                                                    if ($partResult == 111) // 查看当前角色
+                                                                    {
+                                                                              $game = new Game();
+                                                                              $roleName = $game -> getCurrentRole ();
+                                                                             $this->replyText ($fromUsername, $toUsername, "您当前的角色是{$roleName}");
+                                                                    }
+                                                                    elseif ($partResult == -1)                  // 房间已满
                                                                     {
                                                                             $this->replyText ($fromUsername, $toUsername, "房间已满，请再创建房间 {$openurl}");    
                                                                     }
                                                                     elseif ($partResult == -2)          // 不存在该房间
                                                                     {
                                                                             $this->replyText ($fromUsername, $toUsername, "该房间不存在，请创建 {$openurl}");
-                                                                    }
-                                                                    elseif ($partResult == 111) // 查看当前角色
-                                                                    {
-                                                                              $game = new Game();
-                                                                              $roleName = $game -> getCurrentRole ();
-                                                                             $this->replyText ($fromUsername, $toUsername, "您当前的角色是{$roleName}");
                                                                     }
                                                                     else
                                                                     {
