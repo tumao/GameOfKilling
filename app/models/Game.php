@@ -128,7 +128,7 @@ class Game extends Orm
       public function getCurrentRole ()
       {
            $redis = new \iRedis ();
-           $roleid = $redis->get ('role',);
+           $roleid = $redis->get ('role');
            if ($roleid == '1')
            {
                   return  '平民';
