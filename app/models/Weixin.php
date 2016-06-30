@@ -57,7 +57,7 @@ class Weixin extends Orm
                                                       {             
                                                                     $Game = new Game ();
                                                                     $partResult = $Game ->partGame ($keyword, $fromUsername);                     // 加入到游戏中
-                                                                    if ($partResult == 111) // 查看当前角色
+                                                                    if ($keyword == 111) // 查看当前角色
                                                                     {
                                                                               $game = new Game();
                                                                               $roleName = $game -> getCurrentRole ();
