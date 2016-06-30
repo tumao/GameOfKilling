@@ -137,7 +137,7 @@ class Game extends Orm
            {
                 return '警察';
            }
-           elseif ($roleid == '2')
+           elseif ($roleid == '3')
            {
                 return '杀手';
            }
