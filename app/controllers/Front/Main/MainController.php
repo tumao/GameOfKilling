@@ -25,7 +25,7 @@ class MainController extends BaseController
         public function inform()
         {
                 $this -> view -> addTitle ('最新通知');
-
+                
                 $this -> view -> show ('main/inform/index');
         }
 

@@ -141,6 +141,10 @@ class Game extends Orm
            {
                 return '杀手';
            }
+           else
+           {
+                return "平民";
+           }
 
       }
 }

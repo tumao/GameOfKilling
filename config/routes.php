@@ -47,6 +47,7 @@ Route::get('score', 'App\Controllers\Front\Game\IndexController@score');			// �
 Route::get('getRole', 'App\Controllers\Front\Game\IndexController@getCurrentRole');			// 战绩
 Route::get('setRole', 'App\Controllers\Front\Game\IndexController@setRole');			// 战绩
 Route::post('setRole', 'App\Controllers\Front\Game\IndexController@setRole');			// 战绩
+Route::get('setResult', 'App\Controllers\Front\Game\IndexController@setResult');		// 设置结果
 
 
 Route::get('informs', 'App\Controllers\Front\Main\MainController@inform');			// 通知

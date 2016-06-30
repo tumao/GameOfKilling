@@ -23,5 +23,24 @@ var Opening = (function ($){
 			}
 		});
 	};
+	this.setresult = function (){
+		var id = document.getElementsByName ('result');
+		var winid = 0;
+		for (var i = 0; i  < id.length; i++)
+		{
+			if (id[i].checked)
+			{
+				winid = id[i].value;
+			}
+		}
+		$.ajax ({
+			url : '/setResult',
+			type : 'GET',
+			data : {winid:winid},
+			success : function (rp){
+				alert ('游戏结果设置成功');
+			}
+		});
+	};
 	return this;
 })(jQuery);

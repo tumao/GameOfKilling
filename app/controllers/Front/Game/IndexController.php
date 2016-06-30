@@ -153,7 +153,13 @@ class IndexController extends BaseController
 	}
 
 	public function score ()
-	{
+	{	
+		$redis = new \iRedis ();
+		$win = $redis -> get ('win') ? $redis -> get ('win') : 0;
+		$lose = $redis -> get ('lose') ? $redis -> get ('lose') : 0;
+		$this -> view ->assign ('win', $win);
+		$this -> view -> assign ('lose', $lose);
+
 		$this -> view ->addCss ('front/css/game.css');
 		$this -> view -> show ('game/scoreList');
 	}
@@ -177,6 +183,35 @@ class IndexController extends BaseController
 			$redis->set ('role', $rand);
 			echo $rand;
 		}
+	}
+
+	public function setResult ()
+	{
+		$redis = new \iRedis ();
+
+		$roleId = $redis -> get ('role');
+		$winId = $_GET['winid'];
+
+		if ($roleId == $winId)
+		{	
+			$win = $redis -> get ('win');
+			if (!$win)
+			{
+				$win = 0;
+			}
+			$redis-> set ('win', $win + 1);
+			
+		}
+		else 			// 杀手输， 其他赢
+		{
+			$lose = $redis -> get ('lose');
+			if (!$lose)
+			{
+				$lose = 0;
+			}
+			$redis-> set ('lose', $lose + 1);
+		}
+		echo 1;
 	}
 
 }
