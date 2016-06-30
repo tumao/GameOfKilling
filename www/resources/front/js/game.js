@@ -19,7 +19,7 @@ var Opening = (function ($){
 			url : '/setRole',
 			type :'POST',
 			success : function (rp){
-				alert ('新一轮游戏的角色分配成功,请游戏成员查看！');
+				alert ('新一轮游戏的角色分配成功,请游戏成员回复“111”查看自己的身份！');
 			}
 		});
 	};
