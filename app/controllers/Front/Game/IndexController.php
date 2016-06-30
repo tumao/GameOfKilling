@@ -192,25 +192,52 @@ class IndexController extends BaseController
 		$roleId = $redis -> get ('role');
 		$winId = $_GET['winid'];
 
-		if ($roleId == $winId)
+		if ($winId == 3)	// 杀手赢
 		{	
 			$win = $redis -> get ('win');
-			if (!$win)
+			$lose = $redis -> get ('lose');
+			if ($roleId == 3)
 			{
-				$win = 0;
+				if (!$win)
+				{
+					$win = 0;
+				}
+				$redis-> set ('win', $win + 1);
 			}
-			$redis-> set ('win', $win + 1);
+			else
+			{
+				if (!$lose)
+				{
+					$lose = 0;
+				}
+				$redis-> set ('lose', $lose + 1);
+			}
+
 			
 		}
 		else 			// 杀手输， 其他赢
 		{
+			$win = $redis -> get ('win');
 			$lose = $redis -> get ('lose');
-			if (!$lose)
+			if ($roleId == 3)
 			{
-				$lose = 0;
+				if (!$lose)
+				{
+					$lose = 0;
+				}
+				$redis-> set ('lose', $lose + 1);
 			}
-			$redis-> set ('lose', $lose + 1);
+			else
+			{
+				if (!$win)
+				{
+					$win = 0;
+				}
+				$redis-> set ('win', $win + 1);
+			}
+			
 		}
+
 		echo 1;
 	}
 
