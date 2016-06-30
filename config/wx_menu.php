@@ -41,7 +41,7 @@ return [
 				],[
 					'type'	=> 'view',
 					'name'	=> '进入游戏',
-					'url'	=> 'http://socketio.cn'
+					'url'	=> getConfig('common.base_url') . 'setRole'
 				]
 			],
 		]
