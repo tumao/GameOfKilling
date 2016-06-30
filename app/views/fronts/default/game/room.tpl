@@ -11,7 +11,7 @@
 </div>
 {if $password neq ''}
 <div class="roombody">
-	<span>房间密码：</span><span>{$password}</span>
+	<!-- <span>房间密码：</span><span>{$password}</span> -->
 </div>
 {/if}
 <div class="footer">
