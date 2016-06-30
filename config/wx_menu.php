@@ -40,7 +40,7 @@ return [
 					'url'	=> getConfig('common.base_url') . 'opening'
 				],[
 					'type'	=> 'view',
-					'name'	=> '进入游戏',
+					'name'	=> '开始游戏',
 					'url'	=> getConfig('common.base_url') . 'setRole'
 				]
 			],
